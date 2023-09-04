@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
-
+  before_action :authenticate_user!, except: %i[show index]
   # GET /posts or /posts.json
   def index
     @posts = Post.all
@@ -8,6 +8,10 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post.update(view: @post.view + 1)
+    # views=@post.view+1
+    # @post.view=views
+    # @post.save
   end
 
   # GET /posts/new

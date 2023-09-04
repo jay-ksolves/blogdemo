@@ -1,3 +1,4 @@
+<div class="container">
 <h1>New post</h1>
 
 <%= render "form", post: @post %>
@@ -5,5 +6,7 @@
 <br>
 
 <div>
-  <%= link_to "Back to posts", posts_path %>
+  <%= link_to "Back to posts", posts_path,class:"btn btn-lg btn-outline-secondary" %>
+</div>
+
 </div>
