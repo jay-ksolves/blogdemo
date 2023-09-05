@@ -1,0 +1,9 @@
+<%= form_with(model: [post,post.comments.build]) do |f| %>
+    <div class="form-control">
+        <br>
+        <h6>Type your comment here</h6>
+        <%= f.text_area :body %>
+        <br>
+        <%= f.submit "Reply" ,class: "btn  btn-lg btn-outline-dark" %>
+    </div>
+<% end%>
