@@ -3,16 +3,16 @@
 <div class="container">
 <%= render @post %>
 <br>
+<h6><%= pluralize(@post.comments.distinct.count(:user_id), 'user') %> commented on this article.</h6>
 <br>
 <div>
   <%= link_to "Edit this post", edit_post_path(@post)   , class:"btn btn-lg btn-outline-dark"%>   |  
   <%= link_to "Back to posts", posts_path , class:"btn btn-lg btn-outline-warning" %>
 <br>
 <br>
-  <%= button_to "Delete this post", @post, method: :delete , class:"btn btn-lg btn-outline-danger"%>
+ </div>
 </div>
-</div>
-
+<br>
 <div class="container">
   <%= render 'comments/form', post: @post %>
   <br>

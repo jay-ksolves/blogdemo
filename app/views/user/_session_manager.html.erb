@@ -6,7 +6,8 @@
           </a>
           <ul class=" dropdown-menu dropdown-menu-lg-end">
             <li><%= link_to "Create New Post" ,new_post_path,class:"dropdown-item"%>
-            <li><a class="dropdown-item" href="#">Action</a></li>
+            <%# <li><a class="dropdown-item" href="#">Action</a></li> %>
+            <hr>
             <li><%= link_to "Edit Account" ,edit_user_registration_path ,class:"dropdown-item" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= button_to "Sign Out" ,destroy_user_session_path ,method: :delete ,class:"dropdown-item" %></li>

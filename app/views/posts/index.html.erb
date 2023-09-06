@@ -1,7 +1,10 @@
 <p style="color: green"><%= notice %></p>
+<div class=" makeme card text-center p-3 mb-2  text-emphasis-info border-info">
 <div class="container">
-<h1>Posts</h1>
-
+  <div class ="card-header">
+<h1>All Posts</h1>
+<br>
+</div>
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>

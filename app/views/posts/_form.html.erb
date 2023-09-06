@@ -6,25 +6,29 @@
       <h2><%= pluralize(post.errors.count, "Errors") %> : prohibited this post from being saved:</h2>
     </div>
   <% end %>
-
+<br>
   <div>
     <%= form.label :title, style: "display: block" %>
+
     <%= form.text_field :title %>
     <% if post.errors.has_key?(:title) %>
       <div style="color: red"><%= post.errors[:title].first %></div>
     <% end %>
   </div>
+  <br>
 
   <div>
-    <%= form.label :body, style: "display: block" %>
+    <%= form.label :body, style: "display: block"%>
     <%= form.text_area :body %>
     <% if post.errors.has_key?(:body) %>
       <div style="color: red"><%= post.errors[:body].first %></div>
     <% end %>
   </div>
-
+<br>
   <div>
-    <%= form.submit%>
+    <button class="btn btn-lg btn-outline-success">
+    <%= form.submit %>
+    </button>
   </div>
 <% end %>
 
