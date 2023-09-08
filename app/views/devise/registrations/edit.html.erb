@@ -8,13 +8,13 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %>*<br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <br>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" ,class:"form-control",placeholder:"Email-ID*"%>
   </div>
  <br>
 <div class="field">
-   <%= f.label :name %>  <br>
-   <%= f.text_field :name %>
+    
+   <%= f.text_field :name ,class:"form-control",placeholder:"Name"%>
  </div> 
 <br>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -22,27 +22,26 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+ <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "new-password",class:"form-control",placeholder:"New Password" %>
     <% if @minimum_password_length %>
-      <br>
     
       <em><%= @minimum_password_length %> characters minimum</em>
     <% end %>
   </div>
 <br>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+<br>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control",placeholder:"Confirm Password"%>
   </div>
 <br>
   <div class="field">
-    <%= f.label :current_password %> *<i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  <br><%= f.password_field :current_password, autocomplete: "current-password" , class:"form-control",placeholder:"Current Password*"%>
+  <i style="text-align:left; justify-content:left;font-align:left;">(we need your current password to confirm your changes)</i><br />
   </div>
 <br>
-  <div class="actions">
-    <button class="btn btn-lg btn-outline-success">
+  <div class="actions d-grid gap-2">
+    <button class="btn btn-lg btn-outline-success ">
     <%= f.submit "Update" %>
     </button>
   </div>
@@ -54,6 +53,6 @@
 <div>Unhappy? yes delete <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete ,class: "btn btn-lg btn-outline-danger"%></div>
 <br>
 <hr>
-<%= link_to "Go Back", :back %>
+<%= link_to "HOME", :back %>
 </div>
 </div>
