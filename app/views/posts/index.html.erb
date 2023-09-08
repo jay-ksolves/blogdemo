@@ -1,0 +1,20 @@
+
+
+<p style="color: green"><%= notice %></p>
+<div class=" makeme card text-center p-3 mb-2  text-emphasis-info border-info glass3">
+<div class="container ">
+  <div class ="card-header">
+<h1>All Posts</h1>
+<br>
+</div>
+<div id="posts">
+  <% @posts.each do |post| %>
+    <%= render post %>
+    <p>
+      <%= link_to "Show this post", post, class:"btn btn-lg btn-outline-secondary" %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New post", new_post_path, class:"btn btn-lg btn-outline-primary " %>
+</div>

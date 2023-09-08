@@ -1,0 +1,13 @@
+<div class ="card border-info">
+<div class="container">
+    <br>
+<div class ="card-title">
+<h1>User Email: <%=@user.email%></h1>
+</div>
+<br>
+<h4><%= pluralize(@user.views,"view" )%></h4>
+<h3><%= "You have added #{current_user.comments.where(post_id: @post_id).count} comment(s) on this post." %></h3>
+
+<p></p>
+</div>
+</div>

@@ -1,0 +1,38 @@
+
+<style>
+  ::placeholder {
+    color: black;
+  }
+</style>
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "Errors") %> : Please check before contnuing </h2>
+    </div>
+  <% end %>
+<br>
+<%# <label style="text-align:left;font-align:left; ">Title</label> %>
+  <div>
+  
+    <%= form.text_field :title ,placeholder:"Title*",class:"form-control"%>
+    <% if post.errors.has_key?(:title) %>
+      <div style="color: red"><%= post.errors[:title].first %></div>
+    <% end %>
+  </div>
+  <br>
+
+  <div>
+
+    <%= form.text_area :body ,placeholder:"Body*" ,class:"form-control" ,rows: 8 %>
+    <% if post.errors.has_key?(:body) %>
+      <div style="color: red"><%= post.errors[:body].first %></div>
+    <% end %>
+  </div> 
+<br>
+  <div class="d-grid gap-2">
+    <button class="btn btn-lg btn-outline-primary ">
+    <%= form.submit %>
+    </button>
+  </div>
+<% end %>
+

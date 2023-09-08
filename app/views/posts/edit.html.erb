@@ -1,0 +1,23 @@
+
+<div class=" makeme card text-center p-3 mb-2 bg-info-subtle text-emphasis-info border-info " >
+<div class="container glass4 ">
+  <br>
+<div class ="card-header">
+<h1>Editing post</h1>
+</div>
+<br>
+<%= render "form", post: @post %>
+
+<br>
+
+<div>
+  <%= link_to "Show this post", @post  ,class: "btn btn-lg btn-outline-secondary"%> | |
+  <%= link_to "Back to posts", posts_path ,class: "btn btn-lg btn-outline-primary" %>
+  <br>
+  <br>
+  <%= button_to "Delete this post", @post , method: :delete , :data =>{turbo_confirm: "Test"},class:"btn btn-lg btn-outline-danger"%>
+
+</div>
+<br>
+</div>
+</div>
