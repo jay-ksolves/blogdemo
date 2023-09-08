@@ -14,7 +14,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
     .makeme{
@@ -33,11 +33,44 @@
   padding:20px;
   margin-top: 600px;
 }
-<style>
   ::placeholder {
     color: black;
   }
-</style>
+  .glass4{
+    background: rgba( 33, 154, 211, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9.5px );
+-webkit-backdrop-filter: blur( 9.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+  .glass3
+  {
+   background: rgba( 237, 245, 243, 0.55 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9.5px );
+-webkit-backdrop-filter: blur( 9.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+.glass2
+{
+  background: white;
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9.5px );
+-webkit-backdrop-filter: blur( 199.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.glass1
+{
+  background: rgba( 207, 222, 234, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 11px );
+-webkit-backdrop-filter: blur( 11px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
     </style>
   </head>
 
@@ -55,6 +88,10 @@
 Made by  : Jay Prakash 😊
 </p>
 </footer>
-
+<script>
+setTimeout(function() {
+    $('#notice-alert, #alert-alert').fadeOut('slow');
+  },4000); 
+</script>
   </body>
 </html>

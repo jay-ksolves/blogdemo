@@ -1,13 +1,12 @@
-
 <% if notice %>
-  <div class="alert alert-success" role="alert" style="padding: 10px 15px; margin: 20px auto; max-width: 700px;">
-  <br>
+  <div id="notice-alert" class="alert alert-success" role="alert" style="padding: 10px 15px; margin: 20px auto; max-width: 700px;">
+    <br>
     <h3 class="notice alert-heading" style="color: green; text-align: center;"><%= notice %></h3>
     <br>
   </div>
 <% elsif alert %>
-<br>
-  <div class="alert alert-danger" role="alert" style="padding: 10px 15px; margin: 0 auto; max-width: 700px;">
+  <br>
+  <div id="alert-alert" class="alert alert-danger" role="alert" style="padding: 10px 15px; margin: 0 auto; max-width: 700px;">
     <h3 class="alert alert-heading" style="color: red; text-align: center;"><%= alert %></h3>
   </div>
 <% end %>

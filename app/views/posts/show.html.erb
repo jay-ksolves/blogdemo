@@ -1,6 +1,7 @@
 
-
-<div class="container">
+<br>
+<div class="container glass1">
+  <br>
 <%= render @post %>
 <br>
 <h6><%= pluralize(@post.comments.distinct.count(:user_id), 'user') %> commented on this article.</h6>
@@ -13,7 +14,9 @@
  </div>
 </div>
 <br>
-<div class="container">
+
+<div class="container glass2">
+  <br>
   <%= render 'comments/form', post: @post %>
   <br>
   <% @comments.each do |comment|%>
