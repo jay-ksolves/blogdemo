@@ -7,15 +7,18 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
-    <%= f.label :email %>*<br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+   <br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control",placeholder:"Email-ID*" %>
   </div>
-
+  <br>
+<br>
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "Send me reset password instructions" ,class: "btn btn-outline-info btn-lg"%>
   </div>
 <% end %>
-
+<br>
+<br>
+<hr>
 <%= render "devise/shared/links" %>
 </div>
 </div>
