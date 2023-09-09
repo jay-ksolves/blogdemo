@@ -1,7 +1,7 @@
 <div class=" makeme card text-center p-3 mb-2  text-emphasis-info border-warning">
 <div class="container">
 
-<h2>Forgot your password?</h2>
+<h2> <i class="fa-solid fa-key fa-xl" style="color: #3cc8c6;"></i> Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>

@@ -2,15 +2,17 @@
 
     <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-           <%= current_user.name%> User Menu
+           <%= current_user.name%> User Menu    <ion-icon name="apps-outline"></ion-icon>
           </a>
           <ul class=" dropdown-menu dropdown-menu-lg-end">
-            <li><%= link_to "Create New Post" ,new_post_path,class:"dropdown-item"%>
+            <li><%= link_to "  Create New Post" ,new_post_path,class:"dropdown-item fa-solid fa-file-pen" %>
+            <br>
             <%# <li><a class="dropdown-item" href="#">Action</a></li> %>
-            <hr>
-            <li><%= link_to "Edit Account" ,edit_user_registration_path ,class:"dropdown-item" %></li>
+          <br>
+            <li><%= link_to "  Edit Account" ,edit_user_registration_path ,class:"dropdown-item fa-solid fa-user-pen" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= button_to "Sign Out" ,destroy_user_session_path ,method: :delete ,class:"dropdown-item" %></li>
+            <li><%= button_to "  Sign Out" ,destroy_user_session_path ,method: :delete ,class:"dropdown-item  fa-solid fa-arrow-right-to-bracket" %> </li>
+            
             
           </ul>
     </li>

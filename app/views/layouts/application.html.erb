@@ -15,8 +15,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
+<script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+<script src="https://kit.fontawesome.com/33c005a0aa.js" crossorigin="anonymous"></script>
+<style>
     .makeme{
       max-width:50rem;
       text-align:center;
@@ -24,14 +25,25 @@
       justify-content:center;
       padding:20px;
       // margin: 200px;
-      margin-left: 700px;
+      margin-left: 500px;
+      margin-top: 100px;
+    }
+    .indexview
+    {
+      max-width:80rem;
+      text-align:center;
+      font-align:center;
+      justify-content:center;
+      padding:20px;
+      margin: 200px;
+      // margin-left: 700px;
       margin-top: 100px;
     }
 .madeby
 {
   text-align: right;
   padding:20px;
-  margin-top: 600px;
+  margin-top: 400px;
 }
   ::placeholder {
     color: black;
@@ -85,13 +97,13 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );
   </main>
 <footer>
 <p class="madeby">
-Made by  : Jay Prakash 😊
+Made by  : Jay Prakash 😊 
 </p>
 </footer>
 <script>
 setTimeout(function() {
     $('#notice-alert, #alert-alert').fadeOut('slow');
-  },4000); 
+  },2000); 
 </script>
   </body>
 </html>
