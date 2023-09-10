@@ -106,6 +106,8 @@ GEM
     importmap-rails (1.2.1)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
+    impressionist (2.0.0)
+      nokogiri (~> 1)
     io-console (0.6.0)
     irb (1.7.4)
       reline (>= 0.3.6)
@@ -237,6 +239,7 @@ DEPENDENCIES
   devise
   image_processing (~> 1.2)
   importmap-rails
+  impressionist
   jbuilder
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)

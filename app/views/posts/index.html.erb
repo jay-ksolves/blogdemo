@@ -7,10 +7,13 @@
     <br>
 <h1>All Posts <i class="fa-thin fa-face-awesome"></i></h1>
 <br>
+
 </div>
+<br>
 <div id="posts">
   <% @posts.each do |post| %>
     <%= render post %>
+    
     <p>
       <%= link_to "Show this post", post, class:"btn btn-lg btn-outline-secondary" %>
     </p>

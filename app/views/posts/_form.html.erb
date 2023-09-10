@@ -7,7 +7,7 @@
 <%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "Errors") %> : Please check before contnuing </h2>
+      <h5><%= pluralize(post.errors.count, "Errors") %> : Please check before contnuing </h5>
     </div>
   <% end %>
 <br>
@@ -28,6 +28,10 @@
       <div style="color: red"><%= post.errors[:body].first %></div>
     <% end %>
   </div> 
+<br>
+<div class="input-group ">
+<%= form.file_field :images,multiple:true ,class:"form-control"%>
+</div>
 <br>
   <div class="d-grid gap-2">
     <button class="btn btn-lg btn-outline-primary ">
