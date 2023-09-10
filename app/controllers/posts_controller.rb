@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[show index]
@@ -21,9 +23,9 @@ class PostsController < ApplicationController
   end
 
   # GET /posts/1/edit
+  # POST /posts or /posts.json
   def edit; end
 
-  023  # POST /posts or /posts.json
   def create
     @post = Post.new(post_params)
     @post.user = current_user

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post
@@ -9,13 +11,12 @@ class CommentsController < ApplicationController
     if @comment.save
 
       flash[:notice] = 'Comment has been made!'
-      redirect_to post_path(@post)
     else
 
       flash[:alert] = 'No comment has made'
-      redirect_to post_path(@post)
 
     end
+    redirect_to post_path(@post)
   end
 
   def destroy
