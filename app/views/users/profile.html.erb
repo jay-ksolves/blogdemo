@@ -1,12 +1,18 @@
-<div class ="card border-info">
+
+<br><div class ="card border-info mb-5">
 <div class="container">
     <br>
+    <div class="card-title">
+        <h2 style="color:rgb(3, 37, 4)">User Name:</h2><h3 style="color:rgb(76, 192, 82)"> <%= @user.name %></h3>
+    </div>
+    <br>
 <div class ="card-title">
-<h1>User Email: <%=@user.email%></h1>
+<h2 style="color:rgb(1, 26, 2)">User Email: </h2><h3 style="color:rgb(84, 217, 89)"><%=@user.email%></h3>
 </div>
 <br>
+
 <h4><%= pluralize(@user.views,"view" )%></h4>
-<h3><%= "You have added #{current_user.comments.where(post_id: @post_id).count} comment(s) on this post." %></h3>
+<!-- <h3><%= "You have added #{current_user.comments.where(post_id: @post_id).count} comment(s) on this post." %></h3> -->
 
 <p></p>
 </div>

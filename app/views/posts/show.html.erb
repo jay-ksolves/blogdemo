@@ -3,45 +3,40 @@
   <br />
   <%= render @post %>
 
-  <div class="container text-center">
+    <div class="container text-center">
+      <% if @post.images.length==1 %>
+        <% image=@post.images.first %>
+          <%= image_tag(image, style: "object-fit: contain; height: 100%; width: 100%;" ) %>
+            <% else %>
+              <% @post.images.each do |image| %>
+                <%= image_tag(image, style: "object-fit: contain; height: 500px; width: 500px;" ) %>
+                  <% end %>
+                    <% end %>
+    </div>
 
-
-<% if @post.images.length == 1 %>
-    <% image = @post.images.first %>
-    <%= image_tag(image, style: "object-fit: contain; height: 100%; width: 100%;") %>
-  <% else %>
-    <% @post.images.each do |image| %>
-      <%= image_tag(image, style: "object-fit: contain; height: 500px; width: 500px;") %>
-     
-    <% end %>
-  <% end %>
-
-</div>
-
-<br>
-
-
-  <h6 class="text-center">
-    <br>
-    <%= pluralize(@post.comments.distinct.count(:user_id), 'user') %> commented
-    on this Post.
-  </h6>
-
-  <br />
-  <div class="text-center">
-    <%= link_to "Edit this post", edit_post_path(@post) , class:"btn btn-lg
-    btn-outline-dark"%> | <%= link_to "Back to posts", posts_path , class:"btn
-    btn-lg btn-outline-warning" %>
     <br />
+
+    <h6 class="text-center">
+      <br />
+      <%= pluralize(@post.comments.distinct.count(:user_id), 'user' ) %> commented
+        on this Post.
+    </h6>
+
     <br />
-  </div>
+    <div class="text-center">
+      <%= link_to "Edit this post" , edit_post_path(@post) , class:"btn btn-lg btn-outline-dark"%> | <%=
+          link_to "Back to posts" , posts_path , class:"btn btn-lg btn-outline-warning" %>
+          <br />
+          <br />
+    </div>
 </div>
 <br />
 
 <div class="container glass2">
   <br />
-  <%= render 'comments/form', post: @post %>
-  <br />
-  <% @comments.each do |comment|%> <%= render 'comments/comment', post:
-  @post,comment: comment %> <%end%>
+  <%= render 'comments/form' , post: @post,comment: @post.comments.build ,submit_label: "Reply" %>
+    <br />
+    <% @comments.each do |comment|%>
+      <%= render 'comments/comment' , post:@post,comment: comment%>
+        <%end%>
 </div>

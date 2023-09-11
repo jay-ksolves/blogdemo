@@ -9,7 +9,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 User.create(email: 'jp@example.com', password: 'password', password_confirmation: 'password')
-
+User.create(email: 'pj@example.com', name: 'Jp', password: 'password', password_confirmation: 'password')
 10.times do |x|
   Post.create(title: "title #{x}", body: "body of #{x} goes here", user_id: User.first.id)
 end
