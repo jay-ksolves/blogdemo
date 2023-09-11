@@ -17,7 +17,7 @@
   <br>
   
   <p><h6 style="border:2px dotted cyan;:20px"><%= pluralize(post.view,"view") %></h6>
-    <h6>Posted by: <%= link_to post.user.email,user_path(post.user) %></h6>
+    <h6>Posted by: <%= link_to post.user.name,user_path(post.user) %></h6>
     </p>
 </div>
 </div>

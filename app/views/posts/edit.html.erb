@@ -15,7 +15,7 @@
   <%= link_to "Back to posts", posts_path ,class: "btn btn-lg btn-outline-primary" %>
   <br>
   <br>
-  <%= button_to "Delete this post", @post , method: :delete , :data =>{turbo_confirm: "Test"},class:"btn btn-lg btn-outline-danger"%>
+  <%= button_to "Delete this post", post_path(@post), method: :delete ,remote: true, data: {confirm: "Are you sure you want to delete??"},class:"btn btn-lg btn-outline-danger"%>
 
 </div>
 <br>

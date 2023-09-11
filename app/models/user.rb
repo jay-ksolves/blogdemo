@@ -8,5 +8,4 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  attr_accessor :name
 end

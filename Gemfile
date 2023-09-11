@@ -75,3 +75,5 @@ end
 
 gem 'devise'
 # gem 'impressionist'
+
+gem 'carrierwave', '~> 3.0'
