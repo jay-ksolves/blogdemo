@@ -15,10 +15,12 @@
     <%= render post %>
     
     <p>
-      <%= link_to "Show this post", post, class:"btn btn-lg btn-outline-secondary" %>
+      <%= link_to "  Show this post", post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New post", new_post_path, class:"btn btn-lg btn-outline-primary " %>
+<div class="d-grid gap-2">
+<%= link_to "  New post", new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-pen " %>
+</div>
 </div>

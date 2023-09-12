@@ -3,7 +3,7 @@
 <div id="<%= dom_id post %>">
 
 <div class="container">
-<div class=" card text-center p-3 mb-2 bg-info-subtle text-emphasis-info border-success">
+<div class=" card text-center p-3 mb-2 bg-light-subtle text-emphasis-info border-success">
   <p style="text-align:left;font-size:1.6rem;">
     <strong class="intro", style="font-size:1.5rem">Title:  </strong>
     <%= post.title %>
@@ -16,8 +16,8 @@
   </div>
   <br>
   
-  <p><h6 style="border:2px dotted cyan;:20px"><%= pluralize(post.view,"view") %></h6>
-    <h6>Posted by: <%= link_to post.user.name,user_path(post.user) %></h6>
+  <p><h6><i class="fa-solid fa-users"></i> <%= pluralize(post.view,"view") %></h6>
+    <h6> <i class="fa-solid fa-user-secret  " style="color: #1f5145"></i> Posted by: <%= link_to post.user.name,user_path(post.user) %></h6>
     </p>
 </div>
 </div>
