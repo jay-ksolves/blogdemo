@@ -12,6 +12,7 @@ class PostsController < ApplicationController
   def show
     @post.update(view: @post.view + 1)
     @comments = @post.comments.order(created_at: :desc)
+    mark_notifications_as_read
     # views=@post.view+1
     # @post.view=views
     # @post.save
@@ -69,6 +70,13 @@ class PostsController < ApplicationController
   # Use callbacks to share common setup or constraints between actions.
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def mark_notifications_as_read
+    return unless current_user
+
+    notifications_to_mark_as_read = @post.notifications_as_post.where(recipient: current_user)
+    notifications_to_mark_as_read.update_all(read_at: Time.zone.now)
   end
 
   # Only allow a list of trusted parameters through.

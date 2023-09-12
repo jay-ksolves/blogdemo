@@ -81,3 +81,4 @@ gem 'carrierwave', '~> 3.0'
 
 gem 'trix'
 # gem 'webpacker', '~> 5.0'
+gem "noticed", "~> 1.6"
