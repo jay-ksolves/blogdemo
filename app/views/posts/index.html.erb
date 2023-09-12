@@ -18,7 +18,14 @@
       <%= link_to "  Show this post", post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
     </p>
   <% end %>
+  
 </div>
+<br>
+<div class="pagination justify-content-center"> 
+  <%= paginate @posts %>
+
+</div>
+<br>
 
 <div class="d-grid gap-2">
 <%= link_to "  New post", new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-pen " %>

@@ -5,7 +5,10 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
+    # @posts = Post.all.order(created_at: :desc)
+    @posts = Post.page(params[:page]).per(3).order(created_at: :desc)
+
+    # @post = Post.order(:posts).page(params[:posts]).per(10)
   end
 
   # GET /posts/1 or /posts/1.json
