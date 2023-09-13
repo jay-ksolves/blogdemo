@@ -10,4 +10,6 @@ class Post < ApplicationRecord
 
   # has_many :notifications, through: :user, dependent: :destroy
   has_many :notifications,  dependent: :destroy
+
+  acts_as_votable
 end

@@ -85,3 +85,6 @@ gem 'noticed', '~> 1.6'
 gem 'kaminari'
 
 gem 'will_paginate', '~> 3.1.0'
+
+
+gem 'acts_as_votable'

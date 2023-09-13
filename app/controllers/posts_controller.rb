@@ -11,6 +11,26 @@ class PostsController < ApplicationController
     # @post = Post.order(:posts).page(params[:posts]).per(10)
   end
 
+  def upvote
+    @post = Post.find(params[:id])
+    if current_user.voted_up_on? @post
+      @post.unvote_by current_user
+    else
+      @post.upvote_by current_user
+    end
+    render 'vote.js.erb'
+  end
+
+  def downvote
+    @post = Post.find(params[:id])
+    if current_user.voted_down_on? @post
+      @post.unvote_by current_user
+    else
+      @post.downvote_by current_user
+    end
+    render 'vote.js.erb'
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
     @post.update(view: @post.view + 1)

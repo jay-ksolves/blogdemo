@@ -1,33 +1,40 @@
-
-
-<p style="color: green"><%= notice %></p>
+<p style="color: green">
+  <%= notice %>
+</p>
 <div class=" indexview card text-center p-3 mb-2  text-emphasis-info border-info glass3">
-<div class="container ">
-  <div class ="card-header">
+  <div class="container ">
+    <div class="card-header">
+      <br>
+      <h1>All Posts <i class="fa-thin fa-face-awesome"></i></h1>
+      <br>
+
+    </div>
     <br>
-<h1>All Posts <i class="fa-thin fa-face-awesome"></i></h1>
-<br>
-
-</div>
-<br>
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
+    <div id="posts">
+      <% @posts.each do |post| %>
+        <%= render post %>
+    
+        <% if current_user %>
+           <br>
+             <%= render 'posts/upvote_link', post: post %>
+               <%= render 'posts/like_count', post: post %>
+              <%= render 'posts/downvote_link', post: post %>
+       <% end %>
+          <br>
+          <br>
+          <p>
+            <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
+          </p>
+      <% end %>
+    </div>
     <br>
-    <p>
-      <%= link_to "  Show this post", post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
-    </p>
-  <% end %>
-  
-</div>
-<br>
-<div class="pagination justify-content-center"> 
-  <%= paginate @posts %>
+    <div class="pagination justify-content-center">
+      <%= paginate @posts %>
 
-</div>
-<br>
+    </div>
+    <br>
 
-<div class="d-grid gap-2">
-<%= link_to "  New post", new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-pen " %>
+    <div class="d-grid gap-2">
+      <%= link_to "  New post" , new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-pen " %>
 </div>
 </div>

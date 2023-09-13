@@ -17,5 +17,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root 'pages#home'
 
- 
+  resources :posts do
+    member do
+      patch 'upvote', to: 'posts#upvote'
+      patch 'downvote', to: 'posts#downvote'
+    end
+  end
+
+  get '/posts/:id/upvote', to: 'posts#upvote'
 end
