@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>All Posts <i class="fa-thin fa-face-awesome"></i></h1>
+  <br />
+
+  <br />
+  <div id="posts"><% @posts.each do |post| %> <%= render post %> <%end%></div>
+
+  <br />
+
+  <div class="container glass2">
+    <br />
+    <%= render 'comments/form' , post: @post,comment: @post.comments.build
+    ,submit_label: "Reply" %>
+    <br />
+    <% @comments.each do |comment|%> <%= render 'comments/comment' ,
+    post:@post,comment: comment%> <%end%>
+  </div>
+</div>

@@ -16,4 +16,6 @@ Rails.application.routes.draw do
   # delete '/posts/:id', to: 'posts#destroy', as: 'post  '
   # Defines the root path route ("/")
   root 'pages#home'
+
+ 
 end

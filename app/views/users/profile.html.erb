@@ -12,8 +12,11 @@
 <br>
 <h3>Number of views on your current Post: </h3>
 <h5 style="color:rgb(84, 217, 89)"><%= pluralize(@user.views,"view" )%></h5>
-<!-- <h3><%= "You have added #{current_user.comments.where(post_id: @post_id).count} comment(s) on this post." %></h3> -->
 
-<p></p>
+<br>
+<h3>
+    <%= "you have added #{@user.comments.where(post_id: @post_id).count} comment(s) on this post." %>
+</h3>
+<br>
 </div>
 </div>
