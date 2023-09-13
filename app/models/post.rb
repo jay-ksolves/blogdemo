@@ -8,5 +8,6 @@ class Post < ApplicationRecord
   has_many_attached :images
   has_noticed_notifications model_name: 'Notification'
 
-  has_many :notifications, through: :user, dependent: :destroy
+  # has_many :notifications, through: :user, dependent: :destroy
+  has_many :notifications,  dependent: :destroy
 end

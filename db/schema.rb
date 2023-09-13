@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_11_175917) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_12_113734) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -66,6 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_175917) do
     t.datetime "read_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "post_id"
+    t.index ["post_id"], name: "index_notifications_on_post_id"
     t.index ["read_at"], name: "index_notifications_on_read_at"
     t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
@@ -98,5 +100,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_11_175917) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "notifications", "posts"
   add_foreign_key "posts", "users"
 end

@@ -2,12 +2,17 @@
   class="comment-<%= comment.id%>container"
   style="border: 1px solid black; padding: 1em; margin: 1em"
 >
-<i class="fa-regular fa-user  " style="color: #28d27a;"></i> User: <%= comment.user.name %><br />
-  <i class="fa-regular fa-envelope " style="color: #31c94a;"></i> Email: <%=comment.user.email %><br />
+  <i class="fa-regular fa-user" style="color: #28d27a"></i> User: <%=
+  comment.user.name %><br />
+  <i class="fa-regular fa-envelope" style="color: #31c94a"></i> Email:
+  <%=comment.user.email %><br />
   <% if (comment.updated_at - comment.created_at)>1 %>
   <span>Edited <%= time_ago_in_words(comment.updated_at) %>ago</span>
   <%else%>
-  <span> <i class="fa-regular fa-clock " style="color: #4ff38d;"></i> Posted <%= time_ago_in_words(comment.created_at)%></span>
+  <span>
+    <i class="fa-regular fa-clock" style="color: #4ff38d"></i> Posted <%=
+    time_ago_in_words(comment.created_at)%></span
+  >
   <%end%> <% if current_user==comment.user%>
   <div class="btn-group float-end">
     <%= button_to "Delete" , [post, comment], class: "btn btn-danger" , method:
