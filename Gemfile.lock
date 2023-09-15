@@ -280,7 +280,7 @@ DEPENDENCIES
   acts_as_votable
   bootsnap
   capybara
-  carrierwave (~> 3.0)
+  carrierwave
   debug
   devise
   image_processing (~> 1.2)

@@ -10,7 +10,7 @@
 <h2 style="color:rgb(1, 26, 2)">User Email: </h2><h3 style="color:rgb(84, 217, 89)"><%=@user.email%></h3>
 </div>
 <br>
-<h3>Number of views on your current Post: </h3>
+<h3>Number of views on your User Profile: </h3>
 <h5 style="color:rgb(84, 217, 89)"><%= pluralize(@user.views,"view" )%></h5>
 
 <br>
@@ -18,5 +18,10 @@
     <%= "you have added #{@user.comments.where(post_id: @post_id).count} comment(s) on this post." %>
 </h3>
 <br>
+
+<br>
+
+<br>
+
 </div>
 </div>

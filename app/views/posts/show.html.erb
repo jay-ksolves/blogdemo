@@ -2,17 +2,6 @@
 <div class="container glass2">
   <br />
   <%= render @post %>
-    <div class="container text-center">
-      <% if @post.images.length==1 %>
-        <% image=@post.images.first %>
-          <%= image_tag(image, style: "object-fit: contain; height: 100%; width: 100%;" ) %>
-            <% else %>
-              <% @post.images.each do |image| %>
-                <%= image_tag(image, style: "object-fit: contain; height: 500px; width: 500px;" ) %>
-                  <% end %>
-                    <% end %>
-    </div>
-
     <br />
 
     <h6 class="text-center">
@@ -35,7 +24,9 @@
   <br />
   <%= render 'comments/form' , post: @post,comment: @post.comments.build ,submit_label: "Reply" %>
     <br />
-    <% @comments.each do |comment|%>
-      <%= render 'comments/comment' , post:@post,comment: comment%>
-        <%end%>
+
+    <% @comments.order(created_at: :desc).first(5).reverse.each do |comment| %>
+       <%= render 'comments/comment', post: @post, comment: comment %>
+    <% end %>
+  
 </div>

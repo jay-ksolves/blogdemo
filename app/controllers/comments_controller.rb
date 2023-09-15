@@ -8,13 +8,15 @@ class CommentsController < ApplicationController
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
 
+    # Load the comments and users for the post in a single query
+    #  @post.preload(comments: :user)
     if @comment.save
 
       flash[:notice] = 'Comment has been made!'
     else
 
-      flash[:alert] = 'No comment has made ( Comment body cannot be blank)'
-
+      # flash[:alert] = 'No comment has made ( Comment body cannot be blank)'
+      flash[:alert] = 'Comment body cannot be blank.'
     end
     redirect_to post_path(@post)
   end
@@ -40,10 +42,14 @@ class CommentsController < ApplicationController
   private
 
   def set_post
-    @post = Post.find(params[:post_id])
+    # @post = Post.find(params[:post_id])
+    @post = Post.includes(:comments).find(params[:post_id])
   end
 
   def comment_params
     params.require(:comment).permit(:body)
   end
 end
+
+# By using the `includes` method with `:comments`, you are eager loading the comments associated with the post.
+# This will fetch all the comments in a single query instead of querying for each comment individually, thus resolving the N+1 query issue.

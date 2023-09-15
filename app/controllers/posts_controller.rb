@@ -4,11 +4,26 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[show index]
   # GET /posts or /posts.json
+
   def index
     # @posts = Post.all.order(created_at: :desc)
     @posts = Post.page(params[:page]).per(3).order(created_at: :desc)
 
     # @post = Post.order(:posts).page(params[:posts]).per(10)
+  end
+
+  def like
+    @post.likes_count += 1
+    @post.save
+
+    redirect_to posts_path
+  end
+
+  def dislike
+    @post.likes_count -= 1
+    @post.save
+
+    redirect_to posts_path
   end
 
   def upvote
@@ -39,6 +54,8 @@ class PostsController < ApplicationController
     # views=@post.view+1
     # @post.view=views
     # @post.save
+    # Get the post's likes.
+    # Get the post's likes, if they exist.
   end
 
   # GET /posts/new
@@ -78,6 +95,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def like
+    @post = Post.find(params[:id])
+    @post.increment!(:likes_count)
+    render json: { likes_count: @post.likes_count }
+  end
+
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
@@ -104,6 +127,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body, images: [])
+    params.require(:post).permit(:title, :body)
   end
 end

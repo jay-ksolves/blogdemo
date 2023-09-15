@@ -19,10 +19,13 @@ Rails.application.routes.draw do
 
   resources :posts do
     member do
-      patch 'upvote', to: 'posts#upvote'
-      patch 'downvote', to: 'posts#downvote'
+      patch 'upvote'
+      patch 'downvote'
     end
   end
 
   get '/posts/:id/upvote', to: 'posts#upvote'
+  get 'post/:id/downvote', to: 'posts#downvote'
+
+  put 'posts/:id/like', to: 'posts#like', as: 'like_post'
 end

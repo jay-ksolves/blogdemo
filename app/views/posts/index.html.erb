@@ -13,19 +13,27 @@
     <div id="posts">
       <% @posts.each do |post| %>
         <%= render post %>
-    
-        <% if current_user %>
-           <br>
-             <%= render 'posts/upvote_link', post: post %>
-               <%= render 'posts/like_count', post: post %>
-              <%= render 'posts/downvote_link', post: post %>
-       <% end %>
-          <br>
-          <br>
-          <p>
-            <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
-          </p>
-      <% end %>
+        <div class="heart">
+  
+          <p>Likes: <%= post.likes_count %></p>
+          <%= link_to "❤️like this Post", like_post_path(post), method: :put, remote: true, data: { controller: "likepost" } %>
+  <%# <a href="javascript:void(0);" onclick="likeme();"
+    style="" ></a> %>
+  <br>
+</div>
+          <% if current_user %>
+            <br>
+            <%= render 'posts/like_count' , post: post %>
+              <%= render 'posts/upvote_link' , post: post %>
+
+
+                <% end %>
+
+<br>
+                  <p>
+                    <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
+                  </p>
+                  <% end %>
     </div>
     <br>
     <div class="pagination justify-content-center">
@@ -38,3 +46,4 @@
       <%= link_to "  New post" , new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-pen " %>
 </div>
 </div>
+
