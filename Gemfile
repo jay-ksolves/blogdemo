@@ -86,3 +86,11 @@ gem 'will_paginate', '~> 3.1.0'
 
 
 gem 'acts_as_votable'
+
+
+gem 'carrierwave', '~> 3.0'
+gem 'mini_magick'
+
+gem 'jquery-rails'
+
+gem 'file_validators'

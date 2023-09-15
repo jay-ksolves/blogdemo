@@ -2,6 +2,11 @@
 <div class="container glass2">
   <br />
   <%= render @post %>
+<% if @post.avatar? %>
+  <div class="container  card text-center">
+  <%= image_tag (@post.avatar.url) ,alt: 'Post Image'%>
+  </div>
+<%end %>
     <br />
 
     <h6 class="text-center">

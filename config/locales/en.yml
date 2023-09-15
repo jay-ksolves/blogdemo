@@ -30,4 +30,11 @@
 # available at https://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  errors:
+    messages:
+    
+      carrierwave_processing_error: "cannot resize error"
+
+      carrierwave_integrity_error: "Not an Image"
+
+      extension_wishlist_error: "you are not allowed to upload %{extension} files, allowed types: %{allowed_types}"

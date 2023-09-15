@@ -3,16 +3,17 @@
 </p>
 <div class=" indexview card text-center p-3 mb-2  text-emphasis-info border-info glass3">
   <div class="container ">
-    <div class="card-header">
+    <div class="card-header jumbotron">
       <br>
       <h1>All Posts <i class="fa-thin fa-face-awesome"></i></h1>
       <br>
 
     </div>
     <br>
+    
     <div id="posts">
       <% @posts.each do |post| %>
-        <%= render post %>
+        <%= render post , post_body: post.body.truncate(150)%>
         <div class="heart">
   
           <p>Likes: <%= post.likes_count %></p>

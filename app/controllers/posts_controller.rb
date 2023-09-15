@@ -111,6 +111,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def truncate_post_body(post)
+    post.body.truncate(150)
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -127,6 +131,6 @@ class PostsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :avatar, :remove_avatar, :avatar_cache)
   end
 end

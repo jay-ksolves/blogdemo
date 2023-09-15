@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_045106) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_15_085939) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -88,6 +88,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_045106) do
     t.float "cached_weighted_average", default: 0.0
     t.integer "likes"
     t.string "default"
+    t.integer "likes_count", default: 0
+    t.string "avatar"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
