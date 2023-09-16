@@ -17,18 +17,18 @@
         <div class="heart">
   
           <p>Likes: <%= post.likes_count %></p>
-          <%= link_to "❤️like this Post", like_post_path(post), method: :put, remote: true, data: { controller: "likepost" } %>
+          <%= button_to "❤️like this Post", like_post_path(post), method: :put, data: { controller: "likepost" } ,class: "btn btn-dark " %>
   <%# <a href="javascript:void(0);" onclick="likeme();"
     style="" ></a> %>
   <br>
 </div>
-          <% if current_user %>
+          <!-- <% if current_user %>
             <br>
             <%= render 'posts/like_count' , post: post %>
               <%= render 'posts/upvote_link' , post: post %>
 
 
-                <% end %>
+                <% end %> -->
 
 <br>
                   <p>

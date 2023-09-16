@@ -12,19 +12,20 @@ class PostsController < ApplicationController
     # @post = Post.order(:posts).page(params[:posts]).per(10)
   end
 
-  def like
-    @post.likes_count += 1
-    @post.save
+  # def like
+  #   @post.likes_count += 1
+  #   @post.save
 
-    redirect_to posts_path
-  end
+  #   redirect_to posts_path
 
-  def dislike
-    @post.likes_count -= 1
-    @post.save
+  # end
 
-    redirect_to posts_path
-  end
+  # def dislike
+  #   @post.likes_count -= 1
+  #   @post.save
+
+  #   redirect_to posts_path
+  # end
 
   def upvote
     @post = Post.find(params[:id])

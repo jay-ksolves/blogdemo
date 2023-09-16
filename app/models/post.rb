@@ -16,6 +16,6 @@ class Post < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   validates  :avatar ,file_size: {less_than: 2.megabytes}
-  
+
   acts_as_votable
 end
