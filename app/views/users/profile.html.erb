@@ -2,6 +2,19 @@
 <br><div class ="card border-info mb-5">
 <div class="container">
     <br>
+    <br>
+
+      
+        <% if @user.profile_image.attached? %>
+        <p><em><b>Profile Image</b></em></p>
+            <%= image_tag url_for(@user.profile_image) %>
+        <% else %>
+        <p><em><b>Default Profile Image</b></em></p>
+            <%= image_tag "default_image.jpg" ,class:"card img-thumbnail rounded d-block img-fluid",style:"height:200px;"%>
+        <%end%>
+ 
+
+<br>
     <div class="card-title">
         <h2 style="color:rgb(3, 37, 4)">User Name:</h2><h3 style="color:rgb(76, 192, 82)"> <%= @user.name %></h3>
     </div>
@@ -19,9 +32,9 @@
 </h3>
 <br>
 
+<%=
+          link_to "  Back to posts" , posts_path , class:"btn btn-lg btn-outline-warning fa-solid fa-backward" %>
+          <br >
 <br>
-
-<br>
-
 </div>
 </div>

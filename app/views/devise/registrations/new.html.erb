@@ -40,7 +40,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" ,class:"form-control",placeholder:"Confirm Password*"%>
   </div>
 <br>
+<div style="text-align:left;">
+  <em ><b>Upload Profile Picture</b></em></div>
+<div class="field">
 
+    <%= f.file_field :profile_image ,class:"form-control",placeholder:"upload Profile Picture"%>
+ 
+</div>
 <br>
   <div class="actions d-grid gap-2">
     <%= f.submit "Sign up" ,class: "btn btn-lg btn-outline-success"%>

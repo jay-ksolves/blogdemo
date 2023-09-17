@@ -17,7 +17,7 @@
         <div class="heart">
   
           <p>Likes: <%= post.likes_count %></p>
-               <%= button_to 'Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-outline-dark"%>
+               <%= button_to '👍 Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-dark"%>
         </div>
 
           <!-- <% if current_user %>
