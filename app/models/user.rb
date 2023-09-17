@@ -20,6 +20,9 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  has_many :likes
+  has_many :liked_posts, through: :likes, source: :post
+
 
 
 end

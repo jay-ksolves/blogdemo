@@ -96,10 +96,27 @@ class PostsController < ApplicationController
     end
   end
 
+  # def like
+  #   @post = Post.find(params[:id])
+  #   @post.increment!(:likes_count)
+  #   render json: { likes_count: @post.likes_count }
+
+  # end
+
   def like
+
     @post = Post.find(params[:id])
-    @post.increment!(:likes_count)
-    render json: { likes_count: @post.likes_count }
+    like = @post.likes.find_by(user: current_user)
+    if like
+      like.destroy
+      @post.decrement!(:likes_count)
+    else
+      @post.likes.create(user: current_user)
+      @post.increment!(:likes_count)
+    end
+    respond_to do |format|
+      format.js
+    end
   end
 
   # DELETE /posts/1 or /posts/1.json

@@ -17,11 +17,9 @@
         <div class="heart">
   
           <p>Likes: <%= post.likes_count %></p>
-          <%= button_to "❤️like this Post", like_post_path(post), method: :put, data: { controller: "likepost" } ,class: "btn btn-dark " %>
-  <%# <a href="javascript:void(0);" onclick="likeme();"
-    style="" ></a> %>
-  <br>
-</div>
+               <%= button_to 'Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-outline-dark"%>
+        </div>
+
           <!-- <% if current_user %>
             <br>
             <%= render 'posts/like_count' , post: post %>
@@ -30,9 +28,9 @@
 
                 <% end %> -->
 
-<br>
+
                   <p>
-                    <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-secondary fa-regular fa-eye" %>
+                    <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-info fa-regular fa-eye" %>
                   </p>
                   <% end %>
     </div>
