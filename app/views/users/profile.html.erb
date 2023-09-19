@@ -30,7 +30,7 @@
         <br />
         <tr>
           <td>
-            <h2 style="color: rgb(3, 37, 4)">User Name:</h2>
+            <h2 style="color: rgb(3, 37, 4)">🔹User Name:</h2>
           </td>
           <td>
             <h3 style="color: rgb(76, 192, 82)"><%= @user.name %></h3>
@@ -39,7 +39,7 @@
         <br />
         <tr>
           <td>
-            <h2 style="color: rgb(1, 26, 2)">User Email:</h2>
+            <h2 style="color: rgb(1, 26, 2)">🔹User Email:</h2>
           </td>
           <td>
             <h3 style="color: rgb(84, 217, 89)"><%=@user.email%></h3>
@@ -49,7 +49,7 @@
         <tr>
           <td>
             <h3 style="color: rgb(1, 26, 2)">
-              Number of views on "<em><%=@user.name%></em>" Profile:
+                🔹 Number of views on "<em><%=@user.name%></em>" Profile:
             </h3>
           </td>
           <td>
@@ -63,7 +63,7 @@
         <h3>
           <tr>
             <td>
-             <em><%=@user.name%></em> <%= " have added #{@user.comments.where(post_id:
+                  <em><%=@user.name%></em> <%= " have added #{@user.comments.where(post_id:
               @post_id).count} comment(s) on this post." %>
             </td>
           </tr>
