@@ -51,6 +51,7 @@ gem 'bootsnap', require: false
 gem 'image_processing', '~> 1.2'
 
 group :development, :test do
+  gem 'pry'
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
 end
@@ -76,7 +77,6 @@ end
 gem 'devise'
 # gem 'impressionist'
 
-
 # gem 'webpacker', '~> 5.0'
 gem 'noticed', '~> 1.6'
 
@@ -84,9 +84,7 @@ gem 'kaminari'
 
 gem 'will_paginate', '~> 3.1.0'
 
-
 gem 'acts_as_votable'
-
 
 gem 'carrierwave', '~> 3.0'
 gem 'mini_magick'
@@ -95,8 +93,8 @@ gem 'jquery-rails'
 
 gem 'file_validators'
 
-
-
 # gem 'trix'
 
 gem 'cancancan'
+gem 'pay', '~> 6.8'
+gem 'stripe', '~> 9.3'

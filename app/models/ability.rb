@@ -15,10 +15,11 @@ class Ability
         can :create, Post
         can :create, Comment
         can :edit, Post
+        can :like, Post
         can :destroy, Post do |post|
           post.user == user
         end
-        
+
         can :edit, Comment
         can :destroy, Comment do |comment|
           comment.user == user
@@ -27,6 +28,9 @@ class Ability
         can :read, :all
         can :create, Post
         can :create, Comment
+        can :like, Post
+
+
         can :edit, Post do |_post|
           _post.user == user
         end

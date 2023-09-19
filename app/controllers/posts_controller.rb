@@ -110,6 +110,9 @@ class PostsController < ApplicationController
   # end
 
   def like
+
+    # binding.pry
+
     @post = Post.find(params[:id])
     like = @post.likes.find_by(user: current_user)
     if like

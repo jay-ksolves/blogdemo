@@ -6,9 +6,11 @@
           </a>
           <ul class=" dropdown-menu dropdown-menu-lg-end">
             <li><%= link_to "  Create New Post" ,new_post_path,class:"dropdown-item fa-solid fa-file-pen" %>
-            <br>
-            <%# <li><a class="dropdown-item" href="#">Action</a></li> %>
-          <br>
+              <p>
+                <% if current_user.role == 'admin' %>
+                <li><a class="dropdown-item  fa-solid fa-user" href="#">Update User Roles</a></li>
+              </p>
+              <%end%>
             <li><%= link_to "  Edit Account" ,edit_user_registration_path ,class:"dropdown-item fa-solid fa-user-pen" %></li>
             <li><hr class="dropdown-divider"></li>
             <li><%= button_to "  Sign Out" ,destroy_user_session_path ,method: :delete ,class:"dropdown-item  fa-solid fa-arrow-right-to-bracket" %> </li>

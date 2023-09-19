@@ -91,6 +91,7 @@ GEM
       image_processing (~> 1.1)
       marcel (~> 1.0.0)
       ssrf_filter (~> 1.0)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
     date (3.3.3)
@@ -190,6 +191,11 @@ GEM
       http (>= 4.0.0)
       rails (>= 5.2.0)
     orm_adapter (0.5.0)
+    pay (6.8.1)
+      rails (>= 6.0.0)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
     public_suffix (5.0.3)
     puma (5.6.7)
       nio4r (~> 2.0)
@@ -251,10 +257,9 @@ GEM
     ssrf_filter (1.1.2)
     stimulus-rails (1.2.2)
       railties (>= 6.0.0)
+    stripe (9.3.0)
     thor (1.2.2)
     timeout (0.4.0)
-    trix (0.10.1)
-      rails
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -303,13 +308,15 @@ DEPENDENCIES
   kaminari
   mini_magick
   noticed (~> 1.6)
+  pay (~> 6.8)
+  pry
   puma (~> 5.0)
   rails (~> 7.0.7, >= 7.0.7.2)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
-  trix
+  stripe (~> 9.3)
   turbo-rails
   tzinfo-data
   web-console
