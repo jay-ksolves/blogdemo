@@ -7,7 +7,6 @@ export default class extends Controller {
       event.preventDefault();
 
       $.ajax({
-      
         url: "/posts/" + postId + "/like",
         type: "put",
         success: function (response) {

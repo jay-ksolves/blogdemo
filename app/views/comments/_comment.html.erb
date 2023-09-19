@@ -26,6 +26,12 @@
     comments_form_param: "edit-form-#{comment.id}" , comments_body_param:
     "comment-body-#{comment.id}" ,} %>
   </div>
+  <div id="edit-form-<%= comment.id%>" class="d-none">
+    <br />
+    <%= render 'comments/form' , post: @post,comment: comment,submit_label:
+    "Update" %>
+  </div>
+ 
   <%elsif current_user==comment.user %>
   
   <div class="btn-group float-end">
