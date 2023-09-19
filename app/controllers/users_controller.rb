@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      @user.attach_image(params[:user][:profile_image])
+      @user.attach_image(params[:user][:userimage])
       redirect_to root_path, notice: 'User created successfully.'
     else
       render :edit
@@ -28,7 +28,8 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:role, :name, :email, :password, :password_confirmation, :current_password, :profile_image)
+    params.require(:user).permit(:role, :name, :email, :password, :userimage, :password_confirmation, :current_password,
+                                 :profile_image)
   end
 
   def set_user

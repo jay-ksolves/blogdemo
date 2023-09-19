@@ -5,9 +5,9 @@
     <br>
 
       
-        <% if @user.profile_image.attached? %>
+        <% if @user.userimage.present? %>
         <p><em><b>Profile Image</b></em></p>
-            <%= image_tag url_for(@user.profile_image) %>
+          <%= image_tag (@user.userimage.url) ,alt: 'User Image',class:"card img-thumbnail rounded d-block img-fluid",style:"height:200px;"%>
         <% else %>
         <p><em><b>Default Profile Image</b></em></p>
             <%= image_tag "default_image.jpg" ,class:"card img-thumbnail rounded d-block img-fluid",style:"height:200px;"%>

@@ -24,4 +24,8 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
 
   has_one_attached :profile_image
+
+  mount_uploader :userimage, AvatarUploader
+  validates  :userimage, file_size: {less_than: 2.megabytes}
+
 end
