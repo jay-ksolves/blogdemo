@@ -1,4 +1,9 @@
 <% if current_user%>
+            <% if current_user.userimage.present? %>
+              <%= image_tag current_user.userimage.url, class:"img-thumbnail  img-fluid",style:"height:60px;width:60px; border-radius:100%"%>
+            <% else %>
+            <%= image_tag "default_image.jpg" ,class:"img-thumbnail  img-fluid",style:"height:60px;width:60px; border-radius:100%"%>   
+            <%end%>
 
     <li class="nav-item dropdown ">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
