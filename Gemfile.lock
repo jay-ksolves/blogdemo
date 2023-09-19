@@ -74,6 +74,7 @@ GEM
     bootsnap (1.16.0)
       msgpack (~> 1.2)
     builder (3.2.4)
+    cancancan (3.5.0)
     capybara (3.39.2)
       addressable
       matrix
@@ -252,6 +253,8 @@ GEM
       railties (>= 6.0.0)
     thor (1.2.2)
     timeout (0.4.0)
+    trix (0.10.1)
+      rails
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -287,6 +290,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_votable
   bootsnap
+  cancancan
   capybara
   carrierwave (~> 3.0)
   debug
@@ -305,6 +309,7 @@ DEPENDENCIES
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
+  trix
   turbo-rails
   tzinfo-data
   web-console

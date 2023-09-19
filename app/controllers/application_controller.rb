@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include CanCan::ControllerAdditions
   before_action :set_notifications, if: :current_user
 
   private

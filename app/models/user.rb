@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-
+  # enum role: %i[admin editor normal_user]
   validates_length_of :name,
                       minimum: 5, maximum: 50,
                       presence: true,

@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class CommentsController < ApplicationController
+  include CanCan::ControllerAdditions
+  load_and_authorize_resource
   before_action :authenticate_user!
   before_action :set_post
 
@@ -44,10 +46,14 @@ class CommentsController < ApplicationController
   def set_post
     # @post = Post.find(params[:post_id])
     @post = Post.includes(:comments).find(params[:post_id])
+    @comments = @post.comments.paginate(page: params[:page], per_page: 5)
   end
 
   def comment_params
     params.require(:comment).permit(:body)
+    # params.require(:comment).permit(:body).tap do |whitelisted|
+    #   whitelisted[:body] = params[:comment][:body]
+    # end
   end
 end
 

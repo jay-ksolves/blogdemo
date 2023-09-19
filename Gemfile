@@ -94,3 +94,9 @@ gem 'mini_magick'
 gem 'jquery-rails'
 
 gem 'file_validators'
+
+
+
+# gem 'trix'
+
+gem 'cancancan'

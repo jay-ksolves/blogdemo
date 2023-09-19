@@ -17,21 +17,35 @@
 
     <br />
     <div class="text-center">
-      <%= link_to "  Edit this post" , edit_post_path(@post) , class:"btn btn-lg btn-outline-dark fa-regular fa-pen-to-square"%> | <%=
+    <% if current_user && (can? :edit ,@post)%>
+    
+             <%= link_to "  Edit this post" , edit_post_path(@post) , class:"btn btn-lg btn-outline-dark fa-regular fa-pen-to-square"%> |
+   
+    <%end%>
+     <%=
           link_to "  Back to posts" , posts_path , class:"btn btn-lg btn-outline-warning fa-solid fa-backward" %>
           <br />
           <br />
     </div>
 </div>
 <br />
-
+<h3 class="text-center"><b> ✉ Comments</b></h3>
 <div class="container glass2">
   <br />
-  <%= render 'comments/form' , post: @post,comment: @post.comments.build ,submit_label: "Reply" %>
+  <% if current_user%>
+    <%= render 'comments/form' , post: @post,comment: @post.comments.build ,submit_label: "Reply" %>
+  <%end%>
     <br />
 
-    <% @comments.order(created_at: :desc).first(5).reverse.each do |comment| %>
-       <%= render 'comments/comment', post: @post, comment: comment %>
+    <% if @comments.any? %>
+    <% @comments.order(created_at: :desc).first(5).each do |comment| %>
+     <%= render 'comments/comment', post: @post, comment: comment %>
     <% end %>
-  
+    <div class="pagination justify-content-center">
+    <%= paginate @comments %>
+  </div>
+  <% else %>
+    <p>No comments yet.</p>
+  <% end %>
+
 </div>

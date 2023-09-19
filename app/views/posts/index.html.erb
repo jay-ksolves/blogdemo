@@ -13,11 +13,12 @@
     
     <div id="posts">
       <% @posts.each do |post| %>
-        <%= render post , post_body: post.body.truncate(150)%>
+        <%= render post , post_body: post.body%>
         <div class="heart">
-  
           <p>Likes: <%= post.likes_count %></p>
-               <%= button_to '👍 Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-dark"%>
+              <% if current_user%>
+                <%= button_to '👍 Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-dark"%>
+               <%end%>
         </div>
 
           <!-- <% if current_user %>

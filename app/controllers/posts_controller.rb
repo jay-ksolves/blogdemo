@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class PostsController < ApplicationController
+  include CanCan::ControllerAdditions
+
+  load_and_authorize_resource
+
   before_action :set_post, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[show index]
   # GET /posts or /posts.json
@@ -50,7 +54,9 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @post.update(view: @post.view + 1)
-    @comments = @post.comments.order(created_at: :desc)
+    # @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.order(created_at: :desc).paginate(page: params[:page], per_page: 3)
+
     mark_notifications_as_read
     # views=@post.view+1
     # @post.view=views
@@ -104,7 +110,6 @@ class PostsController < ApplicationController
   # end
 
   def like
-
     @post = Post.find(params[:id])
     like = @post.likes.find_by(user: current_user)
     if like
@@ -114,9 +119,7 @@ class PostsController < ApplicationController
       @post.likes.create(user: current_user)
       @post.increment!(:likes_count)
     end
-    respond_to do |format|
-      format.js
-    end
+    respond_to(&:js)
   end
 
   # DELETE /posts/1 or /posts/1.json
@@ -150,5 +153,8 @@ class PostsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def post_params
     params.require(:post).permit(:title, :body, :avatar, :remove_avatar, :avatar_cache)
+    # params.require(:post).permit(:title, :body, :avatar).tap do |whitelisted|
+    #   whitelisted[:body] = params[:post][:body]
+    # end
   end
 end

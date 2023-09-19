@@ -13,14 +13,22 @@ class UsersController < ApplicationController
       @user.attach_image(params[:user][:profile_image])
       redirect_to root_path, notice: 'User created successfully.'
     else
-      render :new
+      render :edit
+    end
+  end
+
+  def update
+    if @user.update(user_params)
+      redirect_to @user
+    else
+      render :edit
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :profile_image, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:role, :name, :email, :password, :password_confirmation, :current_password, :profile_image)
   end
 
   def set_user
