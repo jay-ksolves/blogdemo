@@ -98,6 +98,27 @@
         transform: scale(1.009);
         color: rgb(2, 130, 87);
       }
+
+
+      body {
+	background: linear-gradient(-45deg, #52ee67, #ab6aecfe, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 5s ease-in infinite;
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
     </style>
   </head>
 
