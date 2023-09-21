@@ -1,12 +1,12 @@
 <% if current_user%>
     
           <span>
-            <% button_to 'Subscribe',path(),  class:"btn btn-info text-white fa-regular fa-dollar "%>
+            <%= link_to 'Upgrade Now ! 👑',mypricing_path,  class:"btn btn-info text-white fa-regular fa-dollar " %>
           </span>
         
             <% if current_user.userimage.present? %>
               <%= image_tag current_user.userimage.url, class:"img-thumbnail  img-fluid",style:"height:60px;width:60px; border-radius:100%"%>
-              <!-- <span class=" translate-top badge rounded-pill bg-primary">👑</span> -->
+              <!-- <span class=" translate-top badge rounded-pill bg-primary"></span> -->
             <% else %>
                <%= image_tag "default_image.jpg" ,class:"img-thumbnail  img-fluid",style:"height:60px;width:60px; border-radius:100%"%>   
             <%end%>

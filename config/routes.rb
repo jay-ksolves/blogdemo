@@ -28,4 +28,8 @@ Rails.application.routes.draw do
   get 'post/:id/downvote', to: 'posts#downvote'
 
   put 'posts/:id/like', to: 'posts#like', as: 'like_post'
+
+  get 'mypricing', to: 'home#mypricing'
+
+
 end
