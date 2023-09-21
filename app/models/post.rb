@@ -16,7 +16,7 @@ class Post < ApplicationRecord
   has_many :likers, through: :likes, source: :user
 
   mount_uploader :avatar, AvatarUploader
-  validates  :avatar ,file_size: {less_than: 2.megabytes}
+  validates :avatar, file_size: { less_than: 2.megabytes }
 
   acts_as_votable
 

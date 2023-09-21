@@ -110,7 +110,6 @@ class PostsController < ApplicationController
   # end
 
   def like
-
     # binding.pry
 
     @post = Post.find(params[:id])
