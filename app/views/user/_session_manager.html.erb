@@ -1,7 +1,7 @@
 <% if current_user%>
     
           <span>
-            <button class="btn btn-info text-white fa-regular fa-dollar ">Subscribe</button>
+            <% button_to 'Subscribe',path(),  class:"btn btn-info text-white fa-regular fa-dollar "%>
           </span>
         
             <% if current_user.userimage.present? %>
