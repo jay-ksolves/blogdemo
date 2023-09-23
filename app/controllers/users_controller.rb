@@ -69,6 +69,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      UserMailer.with(user: @user).user_created.deliver_later
+
+      case params[:user][:subscription_plan]
+      when 'basic_plan'
+        @user.update(role: 'normal_user')
+      when 'professional_plan'
+        @user.update(role: 'editor')
+      when 'elite_plan'
+        @user.update(role: 'admin')
+      end
+
       @user.attach_image(params[:user][:userimage])
       redirect_to root_path, notice: 'User created successfully.'
     else
@@ -84,11 +95,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def update_subscription
+    # Update the user's subscription
+    # ...
+
+    # Send the email
+    # PostMailer.subscription_updated_email(@user).deliver_now
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:role, :name, :email, :password, :userimage, :password_confirmation, :current_password,
-                                 :profile_image)
+                                 :profile_image, :plan, :subscription_status, :subscription_ends_at)
   end
 
   def set_user

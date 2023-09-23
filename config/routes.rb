@@ -30,6 +30,17 @@ Rails.application.routes.draw do
   put 'posts/:id/like', to: 'posts#like', as: 'like_post'
 
   get 'mypricing', to: 'home#mypricing'
+  get 'userinformation', to: 'home#userinformation'
+
+  # stipe
+  # stripe listen --forward-to localhost:3000/stripe/webhook
+  post 'stripe/webhooks', to: 'stripe/webhooks#create'
+  get 'pricing', to: 'stripe/checkout#pricing'
+  post 'stripe/checkout', to: 'stripe/checkout#checkout'
+  get 'stripe/checkout/success', to: 'stripe/checkout#success'
+  get 'stripe/checkout/cancel', to: 'stripe/checkout#pricing'
+  post 'stripe/billing_portal', to: 'stripe/billing_portal#create'
+
 
 
 end

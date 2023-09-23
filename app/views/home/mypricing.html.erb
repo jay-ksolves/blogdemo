@@ -1,56 +1,57 @@
-<br><br><!-- Pricing -->
-<div class="container card">
-    <br>
+<br><br><!-- -->
+<div class="container card " ,style="background-color:black">
+    <br> 
 <section id="">
-    <h2 class="text-center">A Plan for Every User Needs</h2>
+    <h2 class=" text-center">A Plan for Every User Needs</h2>
     <p class="text-center">Simple and affordable price plans for you.</p>
 
     <div class="row">
-        <div class="pricing-column col-lg-4 col-md-6">
+        <div class="column col-lg-4 col-md-6">
             <div class="card">
                 <div class="card-header">
                     <h3>Basic Plan   <i class="fa-solid fa-user"></i></h3>
                 </div>
                 <div class="card-body">
-                    <h2>5$/mon</h2>
+                    <h2> Rs 500/mon</h2>
                     <p>Access: Read Post and Comments</p>
                     <p>Access: Can create/edit own New Comment/Post</p>
                     <p>No Access : to delete/edit others post and Comments</p>
                     <div class="d-grid gap-2">
 
-                        <button type="button" class="btn btn-lg  btn-outline-dark">Subscribe Now!</button>
+                        <%= link_to  'Subscribe Now!',pricing_path, class:"btn btn-lg  btn-outline-dark"%>
                     </div>
                 </div>
             </div>
         </div>
-        <div class=" pricing-column col-lg-4 col-md-6 ">
+        <div class=" column col-lg-4 col-md-6 ">
             <div class="card">
                 <div class="card-header">
                     <h3>Professional Plan  <i class="fa-solid fa-user-shield"></i></h3>
                 </div>
                 <div class="card-body">
-                    <h2>$49 / mo</h2><p>Access: Read Post and Comments</p>
+                    <h2>Rs 1000 / mo</h2><p>Access: Read Post and Comments</p>
                     <p>Access: Can create New Comment/Post</p>
                     <p>Access:Edit/delete owns post/comment</p>
                     <p>Access : to Edit others posts</p>
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn  btn-lg  btn-dark">Subscribe Now !</button>
+                        <%= link_to  'Subscribe Now!',pricing_path, class:"btn btn-lg  btn-dark"%>
+                        
                     </div>
                 </div>
             </div>
         </div>
-        <div class="pricing-column col-lg-4 col-md-12">
+        <div class="column col-lg-4 col-md-12">
             <div class="card">
                 <div class="card-header">
                     <h3>Elite Plan <i class="fa-solid fa-user-gear"></i> </h3>
                 </div>
                 <div class="card-body">
-                    <h2>$99 / mo</h2>
+                    <h2>Rs 2000 / mo</h2>
                     <p>Access: Read Post and Comments</p>
                     <p>Access: Can create New Comment/Post</p>
                     <p>Access : can delete/edit others post and Comments</p>
                     <div class="d-grid gap-2">
-                        <button type="button" class="btn  btn-lg  btn-dark">Do it now !</button>
+                        <%= link_to  'Do it now !',pricing_path, class:"btn btn-lg  btn-dark"%>
                     </div>
                 </div>
             </div>

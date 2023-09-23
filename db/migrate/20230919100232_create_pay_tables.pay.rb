@@ -12,8 +12,8 @@ class CreatePayTables < ActiveRecord::Migration[6.0]
       t.datetime :deleted_at
       t.timestamps
     end
-    add_index :pay_customers, [:owner_type, :owner_id, :deleted_at, :default], name: :pay_customer_owner_index
-    add_index :pay_customers, [:processor, :processor_id], unique: true
+    add_index :pay_customers, %i[owner_type owner_id deleted_at default], name: :pay_customer_owner_index
+    add_index :pay_customers, %i[processor processor_id], unique: true
 
     create_table :pay_merchants, id: primary_key_type do |t|
       t.belongs_to :owner, polymorphic: true, index: false, type: foreign_key_type
@@ -23,20 +23,22 @@ class CreatePayTables < ActiveRecord::Migration[6.0]
       t.public_send Pay::Adapter.json_column_type, :data
       t.timestamps
     end
-    add_index :pay_merchants, [:owner_type, :owner_id, :processor]
+    add_index :pay_merchants, %i[owner_type owner_id processor]
 
     create_table :pay_payment_methods, id: primary_key_type do |t|
-      t.belongs_to :customer, foreign_key: {to_table: :pay_customers}, null: false, index: false, type: foreign_key_type
+      t.belongs_to :customer, foreign_key: { to_table: :pay_customers }, null: false, index: false,
+                              type: foreign_key_type
       t.string :processor_id, null: false
       t.boolean :default
       t.string :type
       t.public_send Pay::Adapter.json_column_type, :data
       t.timestamps
     end
-    add_index :pay_payment_methods, [:customer_id, :processor_id], unique: true
+    add_index :pay_payment_methods, %i[customer_id processor_id], unique: true
 
     create_table :pay_subscriptions, id: primary_key_type do |t|
-      t.belongs_to :customer, foreign_key: {to_table: :pay_customers}, null: false, index: false, type: foreign_key_type
+      t.belongs_to :customer, foreign_key: { to_table: :pay_customers }, null: false, index: false,
+                              type: foreign_key_type
       t.string :name, null: false
       t.string :processor_id, null: false
       t.string :processor_plan, null: false
@@ -55,13 +57,14 @@ class CreatePayTables < ActiveRecord::Migration[6.0]
       t.public_send Pay::Adapter.json_column_type, :data
       t.timestamps
     end
-    add_index :pay_subscriptions, [:customer_id, :processor_id], unique: true
+    add_index :pay_subscriptions, %i[customer_id processor_id], unique: true
     add_index :pay_subscriptions, [:metered]
     add_index :pay_subscriptions, [:pause_starts_at]
 
     create_table :pay_charges, id: primary_key_type do |t|
-      t.belongs_to :customer, foreign_key: {to_table: :pay_customers}, null: false, index: false, type: foreign_key_type
-      t.belongs_to :subscription, foreign_key: {to_table: :pay_subscriptions}, null: true, type: foreign_key_type
+      t.belongs_to :customer, foreign_key: { to_table: :pay_customers }, null: false, index: false,
+                              type: foreign_key_type
+      t.belongs_to :subscription, foreign_key: { to_table: :pay_subscriptions }, null: true, type: foreign_key_type
       t.string :processor_id, null: false
       t.integer :amount, null: false
       t.string :currency
@@ -71,7 +74,7 @@ class CreatePayTables < ActiveRecord::Migration[6.0]
       t.public_send Pay::Adapter.json_column_type, :data
       t.timestamps
     end
-    add_index :pay_charges, [:customer_id, :processor_id], unique: true
+    add_index :pay_charges, %i[customer_id processor_id], unique: true
 
     create_table :pay_webhooks, id: primary_key_type do |t|
       t.string :processor

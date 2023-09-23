@@ -3,7 +3,6 @@
           <span>
             <%= link_to 'Upgrade Now ! 👑',mypricing_path,  class:"btn btn-info text-white fa-regular fa-dollar " %>
           </span>
-        
             <% if current_user.userimage.present? %>
               <%= image_tag current_user.userimage.url, class:"img-thumbnail  img-fluid",style:"height:60px;width:60px; border-radius:100%"%>
               <!-- <span class=" translate-top badge rounded-pill bg-primary"></span> -->
@@ -16,15 +15,14 @@
            <%= current_user.name%>    <ion-icon name="apps-outline"></ion-icon>
           </a>
           <ul class=" dropdown-menu dropdown-menu-lg-end">
-            <li><%= link_to "  Create New Post" ,new_post_path,class:"dropdown-item fa-solid fa-file-pen" %>
-              <p>
-                <% if current_user.role == 'admin' %>
-                <li><a class="dropdown-item  fa-solid fa-user" href="#">Update User Roles</a></li>
-              </p>
-              <%end%>
+            <li><%= link_to "  Create New Post" ,new_post_path,class:"dropdown-item fa-solid fa-file-pen" %> </li><br>
+              <li><%= link_to "  View Profile" ,userinformation_path,class:"dropdown-item fa-solid fa-user" %></li><br>
+              
+            
+           <li><%= button_to '    Billing Portal', stripe_billing_portal_path,class: "dropdown-item  btn fa fa-solid fa-file-invoice",data:{turbo:'false'} %></li><br> 
             <li><%= link_to "  Edit Account" ,edit_user_registration_path ,class:"dropdown-item fa-solid fa-user-pen" %></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= button_to "  Sign Out" ,destroy_user_session_path ,method: :delete ,class:"dropdown-item  fa-solid fa-arrow-right-to-bracket" %> </li>
+            <li><%= button_to "  Sign Out" ,destroy_user_session_path ,method: :delete ,class:"dropdown-item  fa-solid fa-arrow-right-to-bracket",data:{turbo:'false'} %> </li>
             
             
           </ul>

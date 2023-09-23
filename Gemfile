@@ -98,3 +98,5 @@ gem 'file_validators'
 gem 'cancancan'
 gem 'pay', '~> 6.8'
 gem 'stripe', '~> 9.3'
+
+gem 'actionmailer'
