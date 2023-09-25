@@ -2,10 +2,10 @@
 
 Rails.application.routes.draw do
   get 'users/profile'
-  devise_for :users, controllers: {
-    session: 'users/sessions',
-    registrations: 'users/registrations'
-  }
+  # devise_for :users, controllers: {
+  #   session: 'users/sessions',
+  #   registrations: 'users/registrations'
+  # }
   get '/u/:id', to: 'users#profile', as: 'user'
   resources :posts do
     resources :comments
@@ -41,6 +41,13 @@ Rails.application.routes.draw do
   get 'stripe/checkout/cancel', to: 'stripe/checkout#pricing'
   post 'stripe/billing_portal', to: 'stripe/billing_portal#create'
 
+  # facebook login
 
+  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks'
+  }
 end

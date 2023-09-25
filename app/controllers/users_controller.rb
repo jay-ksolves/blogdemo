@@ -71,12 +71,13 @@ class UsersController < ApplicationController
     if @user.save
       UserMailer.with(user: @user).user_created.deliver_later
 
-      case params[:user][:subscription_plan]
-      when 'basic_plan'
+      case params[:user][:plan]
+
+      when 'monthly', 'yearly'
         @user.update(role: 'normal_user')
-      when 'professional_plan'
+      when 'monthlyprof', 'yearlyprof'
         @user.update(role: 'editor')
-      when 'elite_plan'
+      when 'monthlyelite', 'yearlyelite'
         @user.update(role: 'admin')
       end
 

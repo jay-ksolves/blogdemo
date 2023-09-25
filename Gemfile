@@ -100,3 +100,7 @@ gem 'pay', '~> 6.8'
 gem 'stripe', '~> 9.3'
 
 gem 'actionmailer'
+
+
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'

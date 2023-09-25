@@ -3,5 +3,3 @@ Rails.configuration.stripe = {
   secret_key: 'sk_test_51NrzBpSFVzh5KrmiC1dHcvwi1hG53QNhcMSifNpBTNYycVOAytTkslVqGIttnO4oSSK4VfcmHv8Y9EVCycL6vMib00vzstC2QS'
 }
 Stripe.api_key = Rails.configuration.stripe[:secret_key]
-
-

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_22_061345) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_23_122224) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -205,6 +205,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_22_061345) do
     t.string "plan"
     t.string "subscription_status"
     t.datetime "subscription_ends_at"
+    t.string "provider"
+    t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

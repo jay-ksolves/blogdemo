@@ -1,7 +1,7 @@
 <% if current_user%>
     
           <span>
-            <%= link_to 'Upgrade Now ! 👑',mypricing_path,  class:"btn btn-info text-white fa-regular fa-dollar " %>
+            <%= link_to 'Upgrade Now! 👑',mypricing_path,  class:"btn btn-info text-white fa-regular fa-dollar " %>
           </span>
             <% if current_user.userimage.present? %>
               <%= image_tag current_user.userimage.url, class:"img-thumbnail  img-fluid",style:"height:60px;width:60px; border-radius:100%"%>
@@ -15,7 +15,10 @@
            <%= current_user.name%>    <ion-icon name="apps-outline"></ion-icon>
           </a>
           <ul class=" dropdown-menu dropdown-menu-lg-end">
-            <li><%= link_to "  Create New Post" ,new_post_path,class:"dropdown-item fa-solid fa-file-pen" %> </li><br>
+            <% if current_user && (can? :create ,@post)%>
+               <li><%= link_to "  Create New Post" ,new_post_path,class:"dropdown-item fa-solid fa-file-pen" %> </li><br>
+
+            <%end%>
               <li><%= link_to "  View Profile" ,userinformation_path,class:"dropdown-item fa-solid fa-user" %></li><br>
               
             

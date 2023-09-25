@@ -37,6 +37,9 @@
 <% end %>
 <br>
 <hr>
+<%= link_to "  Sign in with Facebook", user_facebook_omniauth_authorize_path ,class:"btn btn-primary fa fa-solid fa-facebook"%> | | <%= link_to "  Sign in with Google", user_google_oauth2_omniauth_authorize_path ,class:"btn btn-dark fa fa-solid fa-google"%>
+<br>
+<br>
 <%= render "devise/shared/links" %>
 </div>
 </div>

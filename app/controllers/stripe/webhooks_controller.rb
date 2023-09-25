@@ -38,22 +38,6 @@ module Stripe
       data = event['data']
       data['object']
 
-      # case event.type
-      # when 'customer. created'
-      #   customer = event.data.object
-      #   user = User.find_by(email: customer.email)
-      #   user.update(stripe_customer_id: customer.id)
-
-      # when event.type == 'customer.subscription.deleted', 'customer.subscription.updated', 'customer.subscription.created', 'customer.subscription.trial_will_end'
-      #   subscription = event.data.object
-      #   user = User.find_by(stripe_customer_id: subscription.customer)
-      #   user.update
-      #   {
-      #     plan: subscription.items.data[0].price.recurring.interval,
-      #     subscription_status: subscription.status,
-      #     subscription_ends_at: Time.at(subscription.current_period_end).to_datetime
-      #   }
-      # end
       case event.type
       when 'customer.created'
         customer = event.data.object
@@ -70,11 +54,12 @@ module Stripe
         )
 
         case subscription.items.data[0].price.lookup_key
-        when 'basic_plan'
+
+        when 'monthly', 'yearly'
           user.update(role: 'normal_user')
-        when 'professional_plan'
+        when 'monthlyprof', 'yearlyprof'
           user.update(role: 'editor')
-        when 'elite_plan'
+        when 'monthlyelite', 'yearlyelite'
           user.update(role: 'admin')
         end
 
@@ -88,11 +73,11 @@ module Stripe
           user.update(plan: plan)
 
           case plan
-          when 'basic_plan'
+          when 'monthly', 'yearly'
             user.update(role: 'normal_user')
-          when 'professional_plan'
+          when 'monthlyprof', 'yearlyprof'
             user.update(role: 'editor')
-          when 'elite_plan'
+          when 'monthlyelite', 'yearlyelite'
             user.update(role: 'admin')
           end
         end
