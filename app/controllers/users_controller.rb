@@ -69,7 +69,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      UserMailer.with(user: @user).user_created.deliver_later
+      UserMailer.with(user: @user).user_created.deliver
 
       case params[:user][:plan]
 

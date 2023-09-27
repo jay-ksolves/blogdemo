@@ -80,7 +80,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
-        PostMailer.with(user: current_user, post: @post).post_created.deliver_later
+        PostMailer.with(user: current_user, post: @post).post_created.deliver
         format.html { redirect_to post_url(@post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

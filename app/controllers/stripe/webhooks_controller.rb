@@ -9,6 +9,7 @@ module Stripe
       # If you are using an endpoint defined with the API or dashboard, look in your webhook settings
       # at https://dashboard.stripe.com/webhooks
       webhook_secret = 'whsec_5ff58499fea121729b872fc44727f1c17ffaa2d175b6a5fa999b54795742e3f2'
+      
       payload = request.body.read
       if !webhook_secret.empty?
         # Retrieve the event by verifying the signature using the raw body and secret if webhook signing is configured.

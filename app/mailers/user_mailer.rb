@@ -14,7 +14,7 @@ class UserMailer < ApplicationMailer
       # from: 'jay.prakash@ksolves.com',
       to: User.first.email,
       # cc: User.all.pluck(:email),
-      bcc: 'secret@jay.prakash@ksolves.com',
+      bcc: 'jay.prakash@ksolves.com',
       subject: 'User created successfully'
     )
   end
