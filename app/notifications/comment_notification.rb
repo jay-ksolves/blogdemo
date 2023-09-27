@@ -18,7 +18,7 @@ class CommentNotification < Noticed::Base
   # param :post
 
   # Define helper methods to make rendering easier.
-  #
+
   def message
     # t(".message")
 

@@ -14,6 +14,6 @@ class ApplicationJob < ActiveJob::Base
   def send_user_created
     return unless record.is_a?(User)
 
-    SendEmailsJob.perform_now(self)
+    SendEmailsJob.perform_after(self)
   end
 end

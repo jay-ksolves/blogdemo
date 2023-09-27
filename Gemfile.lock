@@ -163,6 +163,10 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    launchy (2.5.2)
+      addressable (~> 2.8)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     llhttp-ffi (0.4.0)
       ffi-compiler (~> 1.0)
       rake (~> 13.0)
@@ -220,6 +224,9 @@ GEM
       omniauth-oauth2 (~> 1.8.0)
     omniauth-oauth2 (1.8.0)
       oauth2 (>= 1.4, < 3)
+      omniauth (~> 2.0)
+    omniauth-rails_csrf_protection (1.0.1)
+      actionpack (>= 4.2)
       omniauth (~> 2.0)
     orm_adapter (0.5.0)
     pay (6.8.1)
@@ -352,10 +359,12 @@ DEPENDENCIES
   jbuilder
   jquery-rails
   kaminari
+  letter_opener
   mini_magick
   noticed (~> 1.6)
   omniauth-facebook
   omniauth-google-oauth2
+  omniauth-rails_csrf_protection
   pay (~> 6.8)
   pry
   puma (~> 5.0)

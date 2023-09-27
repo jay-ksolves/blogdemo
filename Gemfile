@@ -101,8 +101,10 @@ gem 'stripe', '~> 9.3'
 
 gem 'actionmailer'
 
-
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+gem 'omniauth-rails_csrf_protection'
 
 gem 'sidekiq'
+
+gem 'letter_opener', group: :development
