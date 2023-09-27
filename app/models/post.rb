@@ -21,4 +21,6 @@ class Post < ApplicationRecord
   acts_as_votable
 
   # has_rich_text :body
+
+  # scope :soft_delete, -> { where(deleted_at: Time.current) }
 end

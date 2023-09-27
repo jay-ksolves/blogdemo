@@ -6,4 +6,14 @@ class ApplicationJob < ActiveJob::Base
 
   # Most jobs are safe to ignore if the underlying records are no longer available
   # discard_on ActiveJob::DeserializationError
+
+  after_enqueue :send_user_created
+
+  private
+
+  def send_user_created
+    return unless record.is_a?(User)
+
+    SendEmailsJob.perform_now(self)
+  end
 end

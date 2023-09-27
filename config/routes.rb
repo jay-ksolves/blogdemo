@@ -2,10 +2,14 @@
 
 Rails.application.routes.draw do
   get 'users/profile'
-  # devise_for :users, controllers: {
-  #   session: 'users/sessions',
-  #   registrations: 'users/registrations'
-  # }
+
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    confirmations: 'users/confirmations'
+  }
+  # devise_for :users, controllers: { confirmations: 'users/confirmations' }
   get '/u/:id', to: 'users#profile', as: 'user'
   resources :posts do
     resources :comments
@@ -43,11 +47,7 @@ Rails.application.routes.draw do
 
   # facebook login
 
-  # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    registrations: 'users/registrations',
-    omniauth_callbacks: 'users/omniauth_callbacks'
-  }
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/auth/failure', to: 'sessions#failure'
+  # get '/users/auth/facebook/callback', to: 'users/omniauth_callbacks#facebook'
 end

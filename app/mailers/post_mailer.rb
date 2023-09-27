@@ -6,7 +6,7 @@ class PostMailer < ApplicationMailer
   #
   #   en.post_mailer.post_created.subject
   #
-  default from: 'officialmrjay1@gmail.com'
+  default from: 'jay.prakash@ksolves.com'
 
   # def welcome_email
   #   @user = params[:user]

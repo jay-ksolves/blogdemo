@@ -2,7 +2,7 @@
 
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  #  :lockable, :timeoutable, :trackable and :omniauthable
   # enum role: %i[admin editor normal_user]
 
   # username
@@ -14,7 +14,7 @@ class User < ApplicationRecord
   validates :name, format: { with: /\A[a-zA-Z0-9_\s]+\z/ }
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :confirmable
   # comments
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -49,7 +49,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :omniauthable, omniauth_providers: %i[facebook google_oauth2]
-
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

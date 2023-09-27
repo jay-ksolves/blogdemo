@@ -128,12 +128,13 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-
+    # @post.soft_delete
     respond_to do |format|
       format.html { redirect_to posts_url, alert: 'Post was successfully deleted' }
       format.json { head :no_content }
     end
   end
+
 
   def truncate_post_body(post)
     post.body.truncate(150)
