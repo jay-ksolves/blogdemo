@@ -8,11 +8,11 @@ class UserMailer < ApplicationMailer
   #
   def user_created
     @greeting = 'Hi New User , enjoy your blogging Journey'
-
+    params[:user]
     attachments['default_image.jpeg'] = File.read('app/assets/images/default_image.jpeg')
     mail(
       # from: 'jay.prakash@ksolves.com',
-      to: User.first.email,
+      to: @user.email,
       # cc: User.all.pluck(:email),
       bcc: 'jay.prakash@ksolves.com',
       subject: 'User created successfully'

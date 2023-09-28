@@ -47,7 +47,7 @@ Rails.application.routes.draw do
   post 'stripe/billing_portal', to: 'stripe/billing_portal#create'
 
   # facebook login
-
+  # user_{provider}_omniauth_authorize_path
   # get '/auth/:provider/callback', to: 'sessions#create'
   # get '/auth/failure', to: 'sessions#failure'
   # get '/users/auth/facebook/callback', to: 'users/omniauth_callbacks#facebook'

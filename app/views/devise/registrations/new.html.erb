@@ -67,15 +67,17 @@
 </div>
 <br>
   <div class="actions d-grid gap-2">
-    <%= f.submit "Sign up" ,class: "btn btn-lg btn-outline-success"%>
+    <%= f.submit "Sign up" ,class: "btn fa-solid text-center btn-outline-success"%>
   </div>
 <% end %>
 <br>
 
+<div class="d-grid btn-group gap-2 d-flex align-items-center text-center justify-content-center">
+<%= button_to "  Facebook Login", user_facebook_omniauth_authorize_path , class:"btn btn-outline-primary fa fa-solid fa-facebook", data: { turbo: false }%>
+<%= button_to "  Google Login", user_google_oauth2_omniauth_authorize_path , data: { turbo: false },class:"btn btn-outline-dark fa fa-solid fa-google"%>
+</div>
+<br>
 <hr>
-<%= link_to "  Sign in with Facebook", user_facebook_omniauth_authorize_path , method: :post, class:"btn btn-primary fa fa-solid fa-facebook"%> | | <%= link_to "  Sign in with Google", user_google_oauth2_omniauth_authorize_path , method: :post,class:"btn btn-dark fa fa-solid fa-google"%>
-<br>
-<br>
 <%= render "devise/shared/links"%>
 </div>
 </div>

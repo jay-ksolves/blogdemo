@@ -6,7 +6,7 @@ class PostMailer < ApplicationMailer
   #
   #   en.post_mailer.post_created.subject
   #
-  default from: 'jay.prakash@ksolves.com'
+  # default from: 'jay.prakash@ksolves.com'
 
   # def welcome_email
   #   @user = params[:user]
@@ -15,14 +15,14 @@ class PostMailer < ApplicationMailer
   # end
 
   def post_created
-    # @user = User.first
+    @user = params[:user]
     # @post = Post.first
 
     @greeting = 'your post was created successfully .'
     attachments['emailpic.png'] = File.read('app/assets/images/emailpic.png')
     mail(
       # from: 'jay.prakash@ksolves.com',
-      to: User.first.email,
+      to: @user.email,
       # cc: User.all.pluck(:email),
       bcc: 'jay.prakash@ksolves.com',
       subject: 'Post created successfully'
