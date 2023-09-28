@@ -1,15 +1,14 @@
 
 <div class=" makeme card text-center  text-emphasis-info border-primary">
 <div class="container">
-  <div class ="card-header">
+  <div class ="card-header text-info">
 <h2><i class="fa-solid fa-user-plus fa-xl" style="color: #2bda8e;"></i> Sign Up  for a new account</h2>
 </div>
 <div>
-
+<br>
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
  <%= render "devise/shared/error_messages", resource: resource%>
 
-<br>
 
 
 
@@ -73,7 +72,8 @@
 <br>
 
 <div class="d-grid btn-group gap-2 d-flex align-items-center text-center justify-content-center">
-<%= button_to "  Facebook Login", user_facebook_omniauth_authorize_path , class:"btn btn-outline-primary fa fa-solid fa-facebook", data: { turbo: false }%>
+<%= button_to "  Facebook Login", user_facebook_omniauth_authorize_path , class:"btn btn-outline-primary fa fa-solid fa-facebook-square", data: { turbo: false }%>
+
 <%= button_to "  Google Login", user_google_oauth2_omniauth_authorize_path , data: { turbo: false },class:"btn btn-outline-dark fa fa-solid fa-google"%>
 </div>
 <br>
