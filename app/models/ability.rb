@@ -15,6 +15,7 @@ class Ability
         can :create, Post
         can :create, Comment
         can :edit, Post
+        can :update, Post
         can :like, Post
         can :destroy, Post do |post|
           post.user == user
@@ -35,6 +36,9 @@ class Ability
         can :like, Post
 
         can :edit, Post do |_post|
+          _post.user == user
+        end
+        can :update, Post do |_post|
           _post.user == user
         end
         can :destroy, Post do |post|

@@ -2,6 +2,7 @@
 <div class="container glass2">
   <br />
   <%= render @post %>
+  
 <% if @post.avatar? %>
   <div class="container  card text-center">
   <%= image_tag (@post.avatar.url) ,alt: 'Post Image'%>
@@ -46,7 +47,7 @@
   </div>
   <% else %>
     <p>No comments yet.</p>
-    <p>SignUp Now...!</p>
+    <p> <a href="".style="text-decoration:none;">SignUp</a> Now & Do comments..!</p>
   <% end %>
 
 </div>
@@ -57,4 +58,3 @@
       <button  class="btn btn-outline-primary  share-icon btn-lg rounded-pill fa fa-circle-up"></button>
   </a>
   </div>
-</div>
