@@ -1,7 +1,3 @@
-
-
-
-
 <br /><br />
 
 <div class="container card mb-10">
@@ -29,7 +25,7 @@
     </div>
 
     <%end%>
-    <div class="container mb-10" ,style="">
+    <div class="container mb-10">
       <table>
         <br />
         <tr>
@@ -53,7 +49,7 @@
         <tr>
           <td>
             <h4 style="color: rgb(1, 26, 2)">
-                🔹 Number of views on "<b><%=@user.name%></b>"Profile:
+              🔹 Number of views on "<b><%=@user.name%></b>"Profile:
             </h4>
           </td>
           <td>
@@ -67,8 +63,9 @@
         <h3>
           <tr>
             <td>
-                  <em><%=@user.name%></em> <%= " have added #{@user.comments.where(post_id:
-              @post_id).count} comment(s) on this post." %>
+              <em><%=@user.name%></em> <%= " have added
+              #{@user.comments.where(post_id: @post_id).count} comment(s) on
+              this post." %>
             </td>
           </tr>
         </h3>
@@ -88,6 +85,3 @@
   </div>
 </div>
 <br />
-
-
-
