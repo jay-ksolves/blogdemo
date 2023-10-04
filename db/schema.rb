@@ -21,13 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 20_230_926_014_047) do
     t.index %w[record_type record_id name], name: 'index_action_text_rich_texts_uniqueness', unique: true
   end
 
-  create_table 'active_storage_attachments', force: :cascade do |t|74
+  create_table 'active_storage_attachments', force: :cascade do |t|
     t.string 'name', null: false
     t.string 'record_type', null: false
     t.integer 'record_id', null: false
     t.integer 'blob_id', null: false
     t.datetime 'created_at', null: false
-    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index ['blob_id'],
+            name: 'index_active_storage_attachments_on_blob_id'
     t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
                                                     unique: true
   end
