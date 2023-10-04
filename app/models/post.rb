@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :body, presence: true, length: { minimum: 10, maximum: 100_000 }
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :users, through: :comments
 
   has_noticed_notifications model_name: 'Notification'
 
