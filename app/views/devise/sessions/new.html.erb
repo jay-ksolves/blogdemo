@@ -31,12 +31,16 @@
 
 <div class="actions d-grid gap-2">
 
-    <%= f.submit "Log in"  ,class: "btn btn-lg btn-outline-info " %>
+    <%= f.submit "Log in"  ,class: "btn fa-solid text-center btn-outline-info " %>
  
   </div>
 <% end %>
 <br>
-<hr>
+<div class="d-grid btn-group gap-2 d-flex align-items-center text-center justify-content-center">
+<%= button_to "  Sign up with Facebook", user_facebook_omniauth_authorize_path , class:"btn btn-primary fa fa-solid fa-facebook", data: { turbo: false }%>
+<%= button_to "  Sign up with Google", user_google_oauth2_omniauth_authorize_path , data: { turbo: false },class:"btn btn-outline-dark fa fa-solid fa-google"%>
+</div>
+<br><hr>
 <%= render "devise/shared/links" %>
 </div>
 </div>

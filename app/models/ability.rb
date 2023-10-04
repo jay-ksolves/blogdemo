@@ -15,11 +15,17 @@ class Ability
         can :create, Post
         can :create, Comment
         can :edit, Post
+        can :update, Post
+        can :like, Post
         can :destroy, Post do |post|
           post.user == user
         end
-        
-        can :edit, Comment
+        can :update, Comment do |comment|
+          comment.user == user
+        end
+        can :edit, Comment do |comment|
+          comment.user == user
+        end
         can :destroy, Comment do |comment|
           comment.user == user
         end
@@ -27,7 +33,12 @@ class Ability
         can :read, :all
         can :create, Post
         can :create, Comment
+        can :like, Post
+
         can :edit, Post do |_post|
+          _post.user == user
+        end
+        can :update, Post do |_post|
           _post.user == user
         end
         can :destroy, Post do |post|
@@ -37,6 +48,10 @@ class Ability
           comment.user == user
         end
         can :destroy, Comment do |comment|
+          comment.user == user
+        end
+
+        can :update, Comment do |comment|
           comment.user == user
         end
       end

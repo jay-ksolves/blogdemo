@@ -2,7 +2,17 @@
   class="comment-<%= comment.id%>container"
   style="border: 1px solid black; padding: 1em; margin: 1em"
 >
-  <i class="fa-regular fa-user" style="color: #28d27a"></i> User: <%=
+   
+        <% if comment.user.userimage.present? %>
+          <%= image_tag (comment.user.userimage.url), class:" img-fluid",style:"height:30px;width:30px; border-radius:100%"%>
+
+        <% else %>
+          <%= image_tag "default_image.jpg" ,class:"img-fluid",style:"height:30px;width:30px; border-radius:100%"%>   
+        <%end%>
+
+
+
+  <i class="fa-regular" style="color: #28d27a"></i> User: <%=
   comment.user.name %><br />
   <i class="fa-regular fa-envelope" style="color: #31c94a"></i> Email:
   <%=comment.user.email %><br />
@@ -10,7 +20,7 @@
   <span>Edited <%= time_ago_in_words(comment.updated_at) %>ago</span>
   <%else%>
   <span>
-    <i class="fa-regular fa-clock" style="color: #4ff38d"></i> Posted <%=
+    <i class="fa fa-clock" style="color: #4ff38d"></i> Posted <%=
     time_ago_in_words(comment.created_at)%></span
   >
   <%end%> 

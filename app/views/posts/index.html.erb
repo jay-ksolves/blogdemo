@@ -1,7 +1,7 @@
 <p style="color: green">
   <%= notice %>
 </p>
-<div class=" indexview card text-center p-3 mb-2  text-emphasis-info border-info glass3">
+<div class=" indexview card text-center p-3 mb-2  text-emphasis-info border-info glass2">
   <div class="container ">
     <div class="card-header jumbotron">
       <br>
@@ -31,19 +31,29 @@
 
 
                   <p>
-                    <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-info fa-regular fa-eye" %>
+                    <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-info fa-regular fa-eye mybtn" %>
                   </p>
                   <% end %>
     </div>
     <br>
-    <div class="pagination justify-content-center">
+    <div class="pagination justify-content-center gonext">
       <%= paginate @posts %>
 
     </div>
     <br>
-
+ <% if(can? :create ,Post)%> 
     <div class="d-grid gap-2">
-      <%= link_to "  New post" , new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-pen " %>
+      <%= link_to "  New post" , new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-feather-alt  mybtn" %>
 </div>
+<%end%>
 </div>
+<br>
 
+
+    <div class=" container d-flex d-grid gap-5 ",style="justify-content:right">
+      <a href="#comehere">
+        <button  class="btn btn-outline-info btn-lg rounded-pill fa fa-circle-up share-icon"></button>
+
+      </a>
+      </div>
+   

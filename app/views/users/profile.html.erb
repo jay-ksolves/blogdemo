@@ -1,40 +1,87 @@
+<br /><br />
 
-<br><div class ="card border-info mb-5">
-<div class="container">
-    <br>
-    <br>
+<div class="container card mb-10">
+  <br />
+  <div class="card border-danger mb-3">
+    <br />
+    <br />
 
-      
-        <% if @user.profile_image.attached? %>
-        <p><em><b>Profile Image</b></em></p>
-            <%= image_tag url_for(@user.profile_image) %>
-        <% else %>
-        <p><em><b>Default Profile Image</b></em></p>
-            <%= image_tag "default_image.jpg" ,class:"card img-thumbnail rounded d-block img-fluid",style:"height:200px;"%>
-        <%end%>
- 
-
-<br>
-    <div class="card-title">
-        <h2 style="color:rgb(3, 37, 4)">User Name:</h2><h3 style="color:rgb(76, 192, 82)"> <%= @user.name %></h3>
+    <% if @user.userimage.present? %>
+    <div class="text-center">
+      <%= image_tag (@user.userimage.url) ,alt: 'User Image' ,class:"
+      img-thumbnail img-fluid",style:"height:300px;width:300px;
+      border-radius:100%"%>
+      <p>
+        <em><b>Profile Image</b></em>
+      </p>
     </div>
-    <br>
-<div class ="card-title">
-<h2 style="color:rgb(1, 26, 2)">User Email: </h2><h3 style="color:rgb(84, 217, 89)"><%=@user.email%></h3>
-</div>
-<br>
-<h3>Number of views on your User Profile: </h3>
-<h5 style="color:rgb(84, 217, 89)"><%= pluralize(@user.views,"view" )%></h5>
+    <% else %>
+    <div class="text-center">
+      <%= image_tag "default_image.jpg" ,class:" img-thumbnail
+      img-fluid",style:"height:300px;width:300px; border-radius:100%"%>
+      <p>
+        <em><b>Default Profile Image</b></em>
+      </p>
+    </div>
 
-<br>
-<h3>
-    <%= "you have added #{@user.comments.where(post_id: @post_id).count} comment(s) on this post." %>
-</h3>
-<br>
+    <%end%>
+    <div class="container mb-10">
+      <table>
+        <br />
+        <tr>
+          <td>
+            <h2 style="color: rgb(3, 37, 4)">🔹User Name:</h2>
+          </td>
+          <td>
+            <h3 style="color: rgb(76, 192, 82)"><%= @user.name %></h3>
+          </td>
+        </tr>
+        <br />
+        <tr>
+          <td>
+            <h2 style="color: rgb(1, 26, 2)">🔹User Email:</h2>
+          </td>
+          <td>
+            <h3 style="color: rgb(84, 217, 89)"><%=@user.email%></h3>
+          </td>
+        </tr>
+        <br />
+        <tr>
+          <td>
+            <h4 style="color: rgb(1, 26, 2)">
+              🔹 Number of views on "<b><%=@user.name%></b>"Profile:
+            </h4>
+          </td>
+          <td>
+            <h3 style="color: rgb(84, 217, 89)">
+              <%= pluralize(@user.views,"view" )%>
+            </h3>
+          </td>
+        </tr>
 
-<%=
-          link_to "  Back to posts" , posts_path , class:"btn btn-lg btn-outline-warning fa-solid fa-backward" %>
-          <br >
-<br>
+        <br />
+        <!-- <h3>
+          <tr>
+            <td>
+         <p>   <br><em><%=@user.name%></em> <%= " have added
+              #{@user.comments.where(post_id: @post_id).count} comment(s) on
+              this post." %></p>
+            </td>
+          </tr>
+        </h3> -->
+        <tr>
+          <td>
+            <!-- <h4><b>Stripe customer id: </b></h4> </td><td><%= @user.stripe_customer_id %> -->
+          </td>
+        </tr>
+      </table>
+    </div>
+    <br />
+    <br />
+    <%= link_to " Back to posts" , posts_path , class:"btn btn-lg
+    btn-outline-warning fa-solid fa-backward" %>
+    <br />
+    <br />
+  </div>
 </div>
-</div>
+<br />

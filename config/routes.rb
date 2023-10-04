@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+
   get 'users/profile'
+
   devise_for :users, controllers: {
-    session: 'users/sessions',
-    registrations: 'users/registrations'
+    sessions: 'users/sessions',
+    registrations: 'users/registrations',
+    omniauth_callbacks: 'users/omniauth_callbacks',
+    confirmations: 'users/confirmations'
   }
+  # devise_for :users, controllers: { confirmations: 'users/confirmations' }
   get '/u/:id', to: 'users#profile', as: 'user'
   resources :posts do
     resources :comments
@@ -28,4 +33,22 @@ Rails.application.routes.draw do
   get 'post/:id/downvote', to: 'posts#downvote'
 
   put 'posts/:id/like', to: 'posts#like', as: 'like_post'
+
+  get 'mypricing', to: 'home#mypricing'
+  get 'userinformation', to: 'home#userinformation'
+
+  # stipe
+  # stripe listen --forward-to localhost:3000/stripe/webhook
+  post 'stripe/webhooks', to: 'stripe/webhooks#create'
+  get 'pricing', to: 'stripe/checkout#pricing'
+  post 'stripe/checkout', to: 'stripe/checkout#checkout'
+  get 'stripe/checkout/success', to: 'stripe/checkout#success'
+  get 'stripe/checkout/cancel', to: 'stripe/checkout#pricing'
+  post 'stripe/billing_portal', to: 'stripe/billing_portal#create'
+
+  # facebook login
+  # user_{provider}_omniauth_authorize_path
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/auth/failure', to: 'sessions#failure'
+  # get '/users/auth/facebook/callback', to: 'users/omniauth_callbacks#facebook'
 end

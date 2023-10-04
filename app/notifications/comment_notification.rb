@@ -18,9 +18,11 @@ class CommentNotification < Noticed::Base
   # param :post
 
   # Define helper methods to make rendering easier.
-  #
+
   def message
     # t(".message")
+
+    # binding.pry
     @post = Post.find(params[:comment][:post_id])
     @comment = Comment.find(params[:comment][:id])
     @user = User.find(@comment.user_id)

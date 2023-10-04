@@ -80,6 +80,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        PostMailer.with(user: current_user, post: @post).post_created.deliver
         format.html { redirect_to post_url(@post), notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else
@@ -110,6 +111,8 @@ class PostsController < ApplicationController
   # end
 
   def like
+    # binding.pry
+
     @post = Post.find(params[:id])
     like = @post.likes.find_by(user: current_user)
     if like
@@ -125,7 +128,7 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-
+    # @post.soft_delete
     respond_to do |format|
       format.html { redirect_to posts_url, alert: 'Post was successfully deleted' }
       format.json { head :no_content }
