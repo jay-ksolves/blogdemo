@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 20_230_926_014_047) do
     t.index %w[record_type record_id name], name: 'index_action_text_rich_texts_uniqueness', unique: true
   end
 
-  create_table 'active_storage_attachments', force: :cascade do |t|
+  create_table 'active_storage_attachments', force: :cascade do |t|74
     t.string 'name', null: false
     t.string 'record_type', null: false
     t.integer 'record_id', null: false
