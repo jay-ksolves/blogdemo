@@ -135,7 +135,6 @@ class PostsController < ApplicationController
     end
   end
 
-
   def truncate_post_body(post)
     post.body.truncate(150)
   end
