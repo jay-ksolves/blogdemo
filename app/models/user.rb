@@ -16,7 +16,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   # comments
-  has_many :posts, dependent: :destroy
+  # has_many :posts, dependent: :destroy
+  has_many :posts, through: :comments, dependent: :destroy
   has_many :comments, dependent: :destroy
   # notification
   has_many :notifications, as: :recipient, dependent: :destroy
