@@ -8,6 +8,23 @@
 
 ![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/4e7639ea-643d-47a3-a7ce-9af71f7b10ee)
 
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/c441f22d-06fa-4b2c-b954-d48c2a49e34f)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/f297a992-df6c-4a92-bc44-72b0ff559b39)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/641cadbc-b92f-483e-b1ff-9d29264f3351)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/55479de4-bb5c-4b43-a67b-6142e79adf5d)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/216d6b3b-7477-404e-9412-a43cacba74f5)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/d1dc7fef-471d-4cfc-9dca-0e63bf5a6c35)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/e0e602e2-5c63-4266-9ddf-45c8215526e1)
+
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/a792ca05-9c99-48a7-ba22-01b6da0631e1)
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/e6f72350-8256-4818-b744-adf39e4f6344)
+
 
 # README
 
