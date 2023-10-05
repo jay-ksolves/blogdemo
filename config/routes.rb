@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
-  get 'users/profile'
-
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     registrations: 'users/registrations',
     omniauth_callbacks: 'users/omniauth_callbacks',
     confirmations: 'users/confirmations'
   }
+  get 'users/profile'
   # devise_for :users, controllers: { confirmations: 'users/confirmations' }
   get '/u/:id', to: 'users#profile', as: 'user'
   resources :posts do
@@ -20,7 +18,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # delete '/posts/:id', to: 'posts#destroy', as: 'post  '
   # Defines the root path route ("/")
-
 
   resources :posts do
     member do
