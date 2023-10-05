@@ -7,5 +7,11 @@ RSpec.describe Post, type: :model do
       post = FactoryBot.create(:post)
       expect(post).to be_valid
     end
+
+    it 'associations' do
+      expect(Post.reflect_on_association(:comments).macro).to eq(:has_many)
+      expect(Post.reflect_on_association(:users).macro).to eq(:has_many)
+      expect(Post.reflect_on_association(:likes).macro).to eq(:has_many)
+    end
   end
 end
