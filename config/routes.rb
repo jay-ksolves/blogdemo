@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   # delete '/posts/:id', to: 'posts#destroy', as: 'post  '
   # Defines the root path route ("/")
-  root 'pages#home'
+
 
   resources :posts do
     member do
@@ -51,4 +51,5 @@ Rails.application.routes.draw do
   # get '/auth/:provider/callback', to: 'sessions#create'
   # get '/auth/failure', to: 'sessions#failure'
   # get '/users/auth/facebook/callback', to: 'users/omniauth_callbacks#facebook'
+  root 'pages#home'
 end
