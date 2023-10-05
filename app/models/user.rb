@@ -18,6 +18,8 @@ class User < ApplicationRecord
   # comments
   # has_many :posts, dependent: :destroy
   has_many :posts, through: :comments, dependent: :destroy
+
+  # depedent : :destroy is used to delete the orphans records (which is created when a linked record is deleted)
   has_many :comments, dependent: :destroy
   # notification
   has_many :notifications, as: :recipient, dependent: :destroy
