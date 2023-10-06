@@ -1,0 +1,22 @@
+<div class="container glass2 table-responsive">
+  <br />
+  <table
+    class="table table-striped-columns  table-hover table-bordered table align-middle"
+  >
+    <Thead class="text-center">
+      <th>Post Title</th>
+      <th>Post Body</th>
+    </Thead>
+
+    <tbody class="table-group-divider">
+      <% Post.all.each do |post| %>
+
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= post.body %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

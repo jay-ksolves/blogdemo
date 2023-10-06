@@ -5,7 +5,6 @@ class UsersController < ApplicationController
   def profile
     @user.update(views: @user.views + 1)
   end
-
   # def create
   #   @user = User.new(user_params)
 
