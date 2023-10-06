@@ -1,11 +1,12 @@
 <div class="container glass2 table-responsive">
   <br />
   <table
-    class="table table-striped-columns  table-hover table-bordered table align-middle"
+    class="table table-striped-columns table-hover table-bordered table align-middle border-5 border-dark"
   >
-    <Thead class="text-center">
+    <Thead class="text-center bg-info text-white">
       <th>Post Title</th>
-      <th>Post Body</th>
+      <th class="text-white">Post Body</th>
+      <th>View</th>
     </Thead>
 
     <tbody class="table-group-divider">
@@ -14,9 +15,10 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
+        <td><%= link_to 'View' ,post,style:"text-decoration: none;",class: "btn"%></td>
       </tr>
       <% end %>
     </tbody>
   </table>
 </div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br />
