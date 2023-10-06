@@ -15,9 +15,18 @@
       fa-solid fa-house"%>
     </div>
   </div>
-  <br /> <br>
-  <div class="glass1 bg-info border-info mybtn">
- <b class="fa-regular fa-solid " > | Total <i class="fa fa-user"></i> Users: </b> <b class="badge rounded-pill text-bg-warning"><%= User.count%></b> |----|<b class="fa-regular fa-solid " >Total <i class="fa fa-blog"></i>Posts: </b><b class="badge rounded-pill text-bg-warning"><%= Post.count %> </b>|
+  <br />
+  <br />
+  <div class="glass1 bg-info border-info btn">
+    <b class="fa-regular fa-solid">
+      | Total <i class="fa fa-user"></i>
+      <%= link_to 'Users:',userinfo_path %>
+    </b>
+    <b class="badge rounded-pill text-bg-warning"><%= User.count%></b> |----|<b
+      class="fa-regular fa-solid"
+      >Total <i class="fa fa-blog"></i>
+       <%= link_to 'Posts:',postinfo_path %></b
+    ><b class="badge rounded-pill text-bg-warning"><%= Post.count %> </b>|
   </div>
 </div>
 <br /><br /><br />

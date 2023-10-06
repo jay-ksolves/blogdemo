@@ -1,0 +1,21 @@
+<br><div class="container  glass1 table-responsive">
+  <br />
+  <table
+    class="table table-striped-columns table-hover table-bordered table align-middle"
+  >
+    <Thead class="text-center">
+      <th> User Emails</th>
+      <th> User Names</th>
+    </Thead>
+
+    <tbody class="table-group-divider ">
+      <% User.all.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.name %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

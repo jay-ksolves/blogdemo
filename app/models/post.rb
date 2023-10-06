@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   # has_many :notifications, through: :user, dependent: :destroy
   has_many :notifications, as: :recipient, dependent: :destroy
 
-  has_many :likes
+  has_many :likes, dependent: :destroy
 
   has_many :likers, through: :likes, source: :user
 
