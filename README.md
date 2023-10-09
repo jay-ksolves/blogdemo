@@ -25,6 +25,10 @@
 ![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/a792ca05-9c99-48a7-ba22-01b6da0631e1)
 ![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/e6f72350-8256-4818-b744-adf39e4f6344)
 
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/743a3514-e796-404c-b62f-d01d7de81d52)
+![image](https://github.com/jay-ksolves/blogdemo/assets/143693931/bd898a4c-d6e5-4463-b04b-17d55da0ae78)
+
+
 
 # README
 
