@@ -16,8 +16,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   # comments
-  # has_many :posts, dependent: :destroy
-  has_many :posts, through: :comments, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  # has_many :posts, through: :comments, dependent: :destroy
 
   # depedent : :destroy is used to delete the orphans records (which is created when a linked record is deleted)
   has_many :comments, dependent: :destroy
