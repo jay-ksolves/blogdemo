@@ -16,7 +16,7 @@
         <%= render post , post_body: post.body%>
         <div class="heart">
           <p>Likes: <%= post.likes_count %></p>
-              <% if current_user%>
+              <% if current_user &&(current_user.role != nil )%>
                 <%= button_to '👍 Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-dark"%>
                <%end%>
         </div>
