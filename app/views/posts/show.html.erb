@@ -13,7 +13,15 @@
     <%= pluralize(@post.comments.distinct.count(:user_id), 'user' ) %> commented
     on this Post.
   </h6>
+  <br />
+  <div class="container text-center ">
+  <p>Likes: <%= @post.likes_count %></p>
+  <br />
 
+  <%= button_to "Like This Post", like_post_path(@post),id: 'like_post_pls', data: {
+  post_id: @post.id }, method: :put, remote: true, class: "like-button btn btn-dark" %>
+  <br />
+</div>
   <br />
   <div class="text-center">
     <% if current_user && (can? :edit ,@post)%> <%= link_to " Edit this post" ,
@@ -51,3 +59,40 @@
     </a>
   </div>
 </div>
+
+<!-- ajax implementation -->
+
+<script>
+  $(document).ready(function () {
+    $("#like_post_pls").on("click", function () {
+      // Get the post ID from the data attribute
+      debugger;
+      var postId = $(this).data("post-id");
+
+      $.ajax({
+        url: "/posts/" + postId + "/like",
+        type: "post",
+        data: { like_id: true },
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader(
+            "X-CSRF-Token",
+            $('meta[name="csrf-token"]').attr("content")
+          );
+        },
+        success: function (data) {
+          debugger;
+          // Update the likes count on a successful AJAX call
+          console.log("AJAX request succeeded");
+          document.getElementById("likes-count").textContent = data.likes_count;
+        },
+        error: function (error) {
+          // debugger
+
+          // Log the error details for debugging
+          console.log("AJAX request failed");
+          console.log(error);
+        },
+      });
+    });
+  });
+</script>

@@ -110,6 +110,8 @@ class PostsController < ApplicationController
 
   # end
   def like
+    # binding.pry
+
     @post = Post.find(params[:id])
     like = @post.likes.find_by(user: current_user)
 
@@ -122,7 +124,7 @@ class PostsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      # format.html { redirect_to posts_url }
       format.json { render json: { likes_count: @post.likes_count } }
     end
   end
