@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   get '/posts/:id/upvote', to: 'posts#upvote'
   get 'post/:id/downvote', to: 'posts#downvote'
 
-  put 'posts/:id/like', to: 'posts#like', as: 'like_post'
+  post '/posts/:id/like', to: 'posts#like', as: 'like_post'
 
   get 'mypricing', to: 'home#mypricing'
   get 'userinformation', to: 'home#userinformation'

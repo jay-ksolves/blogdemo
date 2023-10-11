@@ -1,4 +1,3 @@
-
 <!-- Adjust the path accordingly -->
 
 <p style="color: green"><%= notice %></p>
@@ -14,34 +13,26 @@
     <br />
 
     <div id="posts">
-      <% @posts.each do |post| %> <%= render post , post_body: post.body%>
-      <div class="heart">
+      <% @posts.each do |post| %>
+      
+      <%= render post , post_body: post.body%>
+      <br>
+     
+
+      <!-- <div class="heart">
         <p>Likes: <%= post.likes_count %></p>
-        <% if current_user &&(current_user.role != nil )%>
-        <!-- <%= button_to '👍
-        Like this Post', like_post_path(post), method: :put, id:
-        "like-button-#{post.id}", data: { controller: "likepost", action:
-        "click->likepost#likeme" } ,class:"btn btn-dark"%> -->
+        <% if current_user &&(current_user.role != nil )%>]
 
         <%= button_to '👍 Like this Post', like_post_path(post), method: :put,
         id: "like-button-#{post.id}", data: { controller: "likepost", action:
         "click->likepost#likeme", postId: post.id }, class: "btn btn-dark" %>
-
-        <!-- 
-        <div data-controller="likepost">
-          <input type="text">
-          <button data-action="click->likepost#greet">Greet</button>
-        </div> -->
-
         <%end%>
-      </div>
+      </div> -->
 
       <!-- <% if current_user %>
             <br>
             <%= render 'posts/like_count' , post: post %>
               <%= render 'posts/upvote_link' , post: post %>
-
-
                 <% end %> -->
 
       <p>
@@ -72,3 +63,5 @@
     </a>
   </div>
 </div>
+
+
