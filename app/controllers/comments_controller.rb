@@ -16,7 +16,6 @@ class CommentsController < ApplicationController
 
       flash[:notice] = 'Comment has been made!'
     else
-      
       # flash[:alert] = 'No comment has made ( Comment body cannot be blank)'
       flash[:alert] = 'Comment body cannot be blank.'
     end

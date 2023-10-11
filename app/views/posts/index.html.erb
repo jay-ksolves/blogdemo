@@ -1,27 +1,42 @@
-<p style="color: green">
-  <%= notice %>
-</p>
-<div class=" indexview card text-center p-3 mb-2  text-emphasis-info border-info glass2">
-  <div class="container ">
+
+<!-- Adjust the path accordingly -->
+
+<p style="color: green"><%= notice %></p>
+<div
+  class="indexview card text-center p-3 mb-2 text-emphasis-info border-info glass2"
+>
+  <div class="container">
     <div class="card-header jumbotron">
-      <br>
+      <br />
       <h1>All Posts <i class="fa-thin fa-face-awesome"></i></h1>
-      <br>
-
+      <br />
     </div>
-    <br>
-    
-    <div id="posts">
-      <% @posts.each do |post| %>
-        <%= render post , post_body: post.body%>
-        <div class="heart">
-          <p>Likes: <%= post.likes_count %></p>
-              <% if current_user &&(current_user.role != nil )%>
-                <%= button_to '👍 Like this Post', like_post_path(post), method: :put, id: "like-button-#{post.id}", data: { controller: "likepost", action: "click->likepost#likeme" } ,class:"btn btn-dark"%>
-               <%end%>
-        </div>
+    <br />
 
-          <!-- <% if current_user %>
+    <div id="posts">
+      <% @posts.each do |post| %> <%= render post , post_body: post.body%>
+      <div class="heart">
+        <p>Likes: <%= post.likes_count %></p>
+        <% if current_user &&(current_user.role != nil )%>
+        <!-- <%= button_to '👍
+        Like this Post', like_post_path(post), method: :put, id:
+        "like-button-#{post.id}", data: { controller: "likepost", action:
+        "click->likepost#likeme" } ,class:"btn btn-dark"%> -->
+
+        <%= button_to '👍 Like this Post', like_post_path(post), method: :put,
+        id: "like-button-#{post.id}", data: { controller: "likepost", action:
+        "click->likepost#likeme", postId: post.id }, class: "btn btn-dark" %>
+
+        <!-- 
+        <div data-controller="likepost">
+          <input type="text">
+          <button data-action="click->likepost#greet">Greet</button>
+        </div> -->
+
+        <%end%>
+      </div>
+
+      <!-- <% if current_user %>
             <br>
             <%= render 'posts/like_count' , post: post %>
               <%= render 'posts/upvote_link' , post: post %>
@@ -29,31 +44,31 @@
 
                 <% end %> -->
 
-
-                  <p>
-                    <%= link_to "  Show this post" , post, class:"btn btn-lg btn-outline-info fa-regular fa-eye mybtn" %>
-                  </p>
-                  <% end %>
+      <p>
+        <%= link_to " Show this post" , post, class:"btn btn-lg btn-outline-info
+        fa-regular fa-eye mybtn" %>
+      </p>
+      <% end %>
     </div>
-    <br>
+    <br />
     <div class="pagination justify-content-center gonext">
       <%= paginate @posts %>
-
     </div>
-    <br>
- <% if(can? :create ,Post)%> 
+    <br />
+    <% if(can? :create ,Post)%>
     <div class="d-grid gap-2">
-      <%= link_to "  New post" , new_post_path, class:"btn btn-lg btn-outline-primary fa-solid fa-feather-alt  mybtn" %>
+      <%= link_to " New post" , new_post_path, class:"btn btn-lg
+      btn-outline-primary fa-solid fa-feather-alt mybtn" %>
+    </div>
+    <%end%>
+  </div>
+  <br />
+
+  <div class="container d-flex d-grid gap-5" ,style="justify-content:right">
+    <a href="#comehere">
+      <button
+        class="btn btn-outline-info btn-lg rounded-pill fa fa-circle-up share-icon"
+      ></button>
+    </a>
+  </div>
 </div>
-<%end%>
-</div>
-<br>
-
-
-    <div class=" container d-flex d-grid gap-5 ",style="justify-content:right">
-      <a href="#comehere">
-        <button  class="btn btn-outline-info btn-lg rounded-pill fa fa-circle-up share-icon"></button>
-
-      </a>
-      </div>
-   

@@ -109,12 +109,10 @@ class PostsController < ApplicationController
   #   render json: { likes_count: @post.likes_count }
 
   # end
-
   def like
-    # binding.pry
-
     @post = Post.find(params[:id])
     like = @post.likes.find_by(user: current_user)
+
     if like
       like.destroy
       @post.decrement!(:likes_count)
@@ -122,7 +120,11 @@ class PostsController < ApplicationController
       @post.likes.create(user: current_user)
       @post.increment!(:likes_count)
     end
-    respond_to(&:js)
+
+    respond_to do |format|
+      format.html { redirect_to posts_url }
+      format.json { render json: { likes_count: @post.likes_count } }
+    end
   end
 
   # DELETE /posts/1 or /posts/1.json
