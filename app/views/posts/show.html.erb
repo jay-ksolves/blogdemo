@@ -9,12 +9,11 @@
   <br />
   <div class="container text-center">
   <b>  <p id="countlike">Likes: <%= @post.likes_count %></p></b>
-    <br />
-
+  
     <%= button_to "Like This Post", like_post_path(@post),id: 'like_post_pls',
     data: { post_id: @post.id }, method: :put, remote: true, class: "like-button
     btn btn-dark" %>
-    <br />
+
   </div>
 
   <h6 class="text-center">
@@ -66,8 +65,9 @@
 
 <script>
   $(document).ready(function () {
-    $("#like_post_pls").on("click", function () {
+    $("#like_post_pls").on("click", function (event) {
       // Get the post ID from the data attribute
+      event.preventDefault();
       // debugger;
       var postId = $(this).data("post-id");
 
@@ -82,10 +82,10 @@
           );
         },
         success: function (data) {
-          debugger;
+          // debugger;
           // Update the likes count on a successful AJAX call
           console.log("AJAX request succeeded");
-          document.getElementById("likes-count").textContent = data.likes_count;
+          $("#countlike").text("Likes: " + data.likes_count);
           
         },
         error: function (error) {
