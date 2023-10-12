@@ -7,14 +7,13 @@
   </div>
   <%end %>
   <br />
-  <div class="container text-center">
-  <b>  <p id="countlike">Likes: <%= @post.likes_count %></p></b>
-  
-    <%= button_to "Like This Post", like_post_path(@post),id: 'like_post_pls',
-    data: { post_id: @post.id }, method: :put, remote: true, class: "like-button
-    btn btn-dark" %>
+  <!-- <div class="container text-center">
+    <b> <p id="countlike">Likes: <%= @post.likes_count %></p></b>
 
-  </div>
+    <%= button_to "Like This Post", like_post_path(@post), id: 'like_post_pls',
+    data: { post_id: @post.id, state: 'like' }, method: :put, remote: true,
+    class: "like-button btn btn-dark" %>
+  </div> -->
 
   <h6 class="text-center">
     <br />
@@ -62,14 +61,13 @@
 </div>
 
 <!-- ajax implementation -->
-
+<!-- 
 <script>
   $(document).ready(function () {
-    $("#like_post_pls").on("click", function (event) {
-      // Get the post ID from the data attribute
+    $(document).on("click", "#like_post_pls", function (event) {
       event.preventDefault();
-      // debugger;
       var postId = $(this).data("post-id");
+      var button = $(this);
 
       $.ajax({
         url: "/posts/" + postId + "/like",
@@ -82,20 +80,24 @@
           );
         },
         success: function (data) {
-          // debugger;
-          // Update the likes count on a successful AJAX call
+          if (button.data("state") === "like") {
+            // Toggle the state to "dislike"
+            button.data("state", "dislike");
+            button.text("Dislike This Post");
+          } else {
+            // Toggle the state back to "like"
+            button.data("state", "like");
+            button.text("Like This Post");
+          }
+
           console.log("AJAX request succeeded");
           $("#countlike").text("Likes: " + data.likes_count);
-          
         },
         error: function (error) {
-          // debugger
-
-          // Log the error details for debugging
           console.log("AJAX request failed");
           console.log(error);
         },
       });
     });
   });
-</script>
+</script> -->

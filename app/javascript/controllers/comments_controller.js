@@ -2,8 +2,12 @@ import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   initialize() {}
-  connect() {}
+  connect() {
+    console.log("Stimulus connected");
+  }
   toggleForm(event) {
+    // debugger
+
     console.log("clicked on comment edit");
     event.preventDefault();
     event.stopPropagation();
@@ -14,5 +18,6 @@ export default class extends Controller {
     form.classList.toggle("mt-5");
     const commentBody = document.getElementById(commentBodyID);
     commentBody.classList.toggle("d-none");
+    console.log("exit comment controller");
   }
 }
