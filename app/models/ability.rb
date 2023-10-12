@@ -35,11 +35,11 @@ class Ability
         can :create, Comment
         can :like, Post
 
-        can :edit, Post do |_post|
-          _post.user == user
+        can :edit, Post do |p|
+          p.user == user
         end
-        can :update, Post do |_post|
-          _post.user == user
+        can :update, Post do |p|
+          p.user == user
         end
         can :destroy, Post do |post|
           post.user == user
