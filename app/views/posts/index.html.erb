@@ -19,10 +19,11 @@
         <b>
           <p id="countlike_<%= post.id %>">Likes: <%= post.likes_count %></p>
         </b>
-    
+        <% if (can? :like,Post)  && current_user.role!='nil'  %>
         <%= button_to "Like This Post", like_post_path(post), id: "like_post_pls_#{post.id}",
           data: { post_id: post.id, state: 'like' }, method: :put, remote: true,
           class: "like-button btn btn-dark" %>
+          <%end%>
         <br>
       </div>
 
