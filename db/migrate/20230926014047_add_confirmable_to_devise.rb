@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddConfirmableToDevise < ActiveRecord::Migration[7.0]
   def change
     add_column :users, :confirmation_token, :string
@@ -18,4 +20,3 @@ class AddConfirmableToDevise < ActiveRecord::Migration[7.0]
     remove_columns :users, :unconfirmed_email # Only if using reconfirmable
   end
 end
- 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddCachedVotesToPosts < ActiveRecord::Migration[7.0]
   def change
     change_table :posts do |t|

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe PostsController, type: :controller do
@@ -124,7 +126,7 @@ RSpec.describe PostsController, type: :controller do
 
       post = create(:post)
       # user = create(:user)
-      like = create(:like, post: post, user: user)
+      create(:like, post: post, user: user)
       sign_in user
 
       expect do

@@ -93,7 +93,7 @@ Rails.application.configure do
     user_name: 'officialmrjay1@gmail.com',
     password: 'uxrkzhfxshpdshrd',
     authentication: 'plain',
-    enable_starttls_auto: true,
+    enable_starttls_auto: true
   }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
