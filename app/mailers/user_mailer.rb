@@ -6,7 +6,9 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.user_created.subject
   #
-  def user_created
+
+  def user_created(user)
+    @user = user
     @greeting = 'Hi New User , enjoy your blogging Journey'
     params[:user]
     attachments['default_image.jpeg'] = File.read('app/assets/images/default_image.jpeg')

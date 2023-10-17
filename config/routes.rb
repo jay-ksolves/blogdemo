@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   # delete '/posts/:id', to: 'posts#destroy', as: 'post  '
   # Defines the root path route ("/")
 
+  resources :users, only: %i[create update edit]
+  resources :post, only: %i[create update edit destroy]
   resources :posts do
     member do
       patch 'upvote'
@@ -48,9 +50,9 @@ Rails.application.routes.draw do
 
   # facebook login
   # user_{provider}_omniauth_authorize_path
-  # get '/auth/:provider/callback', to: 'sessions#create'
-  # get '/auth/failure', to: 'sessions#failure'
-  # get '/users/auth/facebook/callback', to: 'users/omniauth_callbacks#facebook'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+  get '/users/auth/facebook/callback', to: 'users/omniauth_callbacks#facebook'
 
   root 'pages#home'
 end

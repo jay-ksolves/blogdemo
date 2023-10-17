@@ -1,4 +1,6 @@
-#models/post.rb
+# frozen_string_literal: true
+
+# models/post.rb
 
 class Post < ApplicationRecord
   mount_uploader :image, ImageUploader

@@ -57,6 +57,9 @@ group :development, :test do
 
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 6.0.0'
+  gem 'simplecov', require: false
+
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -68,6 +71,7 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'rubocop-rails', require: false
 end
 
 group :test do

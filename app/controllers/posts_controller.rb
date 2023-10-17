@@ -16,40 +16,25 @@ class PostsController < ApplicationController
     # @post = Post.order(:posts).page(params[:posts]).per(10)
   end
 
-  # def like
-  #   @post.likes_count += 1
-  #   @post.save
-
-  #   redirect_to posts_path
-
+  # def upvote
+  #   @post = Post.find(params[:id])
+  #   if current_user.voted_up_on? @post
+  #     @post.unvote_by current_user
+  #   else
+  #     @post.upvote_by current_user
+  #   end
+  #   render 'vote.js.erb'
   # end
 
-  # def dislike
-  #   @post.likes_count -= 1
-  #   @post.save
-
-  #   redirect_to posts_path
+  # def downvote
+  #   @post = Post.find(params[:id])
+  #   if current_user.voted_down_on? @post
+  #     @post.unvote_by current_user
+  #   else
+  #     @post.downvote_by current_user
+  #   end
+  #   render 'vote.js.erb'
   # end
-
-  def upvote
-    @post = Post.find(params[:id])
-    if current_user.voted_up_on? @post
-      @post.unvote_by current_user
-    else
-      @post.upvote_by current_user
-    end
-    render 'vote.js.erb'
-  end
-
-  def downvote
-    @post = Post.find(params[:id])
-    if current_user.voted_down_on? @post
-      @post.unvote_by current_user
-    else
-      @post.downvote_by current_user
-    end
-    render 'vote.js.erb'
-  end
 
   # GET /posts/1 or /posts/1.json
   def show
@@ -125,7 +110,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       # format.html { redirect_to posts_url }
-      format.json { render json: { likes_count: @post.likes_count } }
+      # format.json { render json: { likes_count: @post.likes_count } }
+      format.json { render json: { likes_count: @post.likes_count }.to_json }
     end
   end
 
@@ -139,9 +125,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def truncate_post_body(post)
-    post.body.truncate(150)
-  end
+  # def truncate_post_body(post)
+  #   post.body.truncate(150)
+  # end
 
   private
 

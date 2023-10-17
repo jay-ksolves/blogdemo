@@ -1,23 +1,20 @@
-#app/controllers/posts_controller.rb
+# frozen_string_literal: true
+
+# app/controllers/posts_controller.rb
 
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: %i[show edit update destroy]
 
   def index
     @posts = Post.order('created_at DESC')
     @rows = [[]]
     @posts.each do |post|
-      if @rows[-1].length < 3
-        @rows[-1] << post
-      else
-        @rows << []
-        @rows[-1] << post
-      end
+      @rows << [] unless @rows[-1].length < 3
+      @rows[-1] << post
     end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @post = Post.new
@@ -32,8 +29,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update_attributes(post_params)
@@ -57,5 +53,4 @@ class PostsController < ApplicationController
   def set_post
     @post = Post.find(params[:id])
   end
-
 end
